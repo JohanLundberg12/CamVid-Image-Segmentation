@@ -8,3 +8,4 @@ SRC_DIR = ROOT_DIR / 'src'
 
 # data
 DATA_DIR = ROOT_DIR / 'data'
+CAMVID_DIR = DATA_DIR / 'CamVid'
