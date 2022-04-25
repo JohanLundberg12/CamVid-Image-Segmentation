@@ -8,6 +8,7 @@ from AEModel import AEModel
 
 from camvid_dataloader import CamVidDataSet
 from config import CAMVID_DIR
+from src.AEModel import AEModelTrainer
 
 
 class DoubleConv(nn.Module):
@@ -118,6 +119,6 @@ if __name__ == "__main__":
     optimizer = optim.Adam(params, lr=5e-5)
     scaler = torch.cuda.amp.GradScaler()
 
-    AEModel_Unet = AEModel(model)
+    AEModel_Unet = AEModelTrainer(model)
 
     AEModel_Unet.train(train_loader, val_loader, epochs=10, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name='unet')

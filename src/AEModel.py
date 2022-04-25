@@ -11,7 +11,7 @@ from torchvision import transforms as T
 from tqdm import tqdm
 
 
-class AEModel:
+class AEModelTrainer:
 
     def __init__(self, model: nn.Module) -> None:
         self.model: nn.Module = model
