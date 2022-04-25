@@ -19,7 +19,7 @@ class AEModel:
     def train(self, train_loader: DataLoader, val_loader: DataLoader, epochs: int, optimizer: optim.Optimizer, loss_fn: Callable, scaler: torch.cuda.amp.GradScaler, log_name: str) -> Tuple[List[float], List[float]]:
         
         # Summary writer for Tensorboard
-        writer = SummaryWriter(log_dir=log_name)
+        writer = SummaryWriter(log_dir='runs/' + log_name)
 
         # Add graph to Tensorboard
         # writer.add_graph(self.model)
