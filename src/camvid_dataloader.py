@@ -21,7 +21,6 @@ class CamVidDataSet():
     def __getitem__(self, idx):
         img_loc = os.path.join(self.imgs_path, self.imgs[idx])
         image = Image.open(img_loc).convert("RGB")
-        image_out = self.transform(image)
         
         label_loc = os.path.join(self.labels_path, self.labels[idx])
         label = Image.open(label_loc).convert("RGB")
@@ -43,5 +42,3 @@ if __name__ == '__main__':
     train_labels_path = CAMVID_DIR / 'train_labels'
 
     camvid = CamVidDataSet(train_imgs_path, train_labels_path, transformation)
-
-    a = 1
