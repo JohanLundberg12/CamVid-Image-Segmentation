@@ -1,6 +1,9 @@
 from time import time
 from typing import Callable, List, Tuple
 
+import json
+from collections import defaultdict
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -67,6 +70,9 @@ class AEModelTrainer:
         train_losses = list()
         valid_losses = list()
 
+        # Saving predictions through epochs
+        valid_preds = defaultdict(list) #epoch:values
+
         for epoch in range(1, epochs+1):
 
             start = time()
@@ -122,12 +128,18 @@ class AEModelTrainer:
                     valid_loss += loss.item()
                     # calculate jaccard score
                     jaccard_scores.append(jaccard_score(targets.cpu().numpy(), predictions.cpu().numpy()))
+                    # extend current epoch with new predictions
+                    valid_preds.extend(predictions.cpu().numpy().reshape(-1,1))
             
             # Calculate average loss
             valid_loss /= len(val_loader)
 
             # average jaccard score mIOU
             jaccard_score = sum(jaccard_scores) / len(jaccard_scores)
+
+            # write predictions to a file for comparison with other training sessions
+            with open("valid_preds/"+log_name, "w") as file:
+                file.write(json.dumps(valid_preds))
 
             stop = time()
 
