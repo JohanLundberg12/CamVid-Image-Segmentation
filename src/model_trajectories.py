@@ -26,6 +26,8 @@ def visualize_model_trajectories(model_trajectories1, model_trajectories2):
 
 if __name__ == "__main__":
     file1, file2 = sys.argv[1], sys.argv[2]
-
     preds1, preds2 = json.loads(file1), json.loads(file2)
+    
+
+
     
