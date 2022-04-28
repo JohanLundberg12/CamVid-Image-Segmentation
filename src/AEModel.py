@@ -71,14 +71,9 @@ class AEModelTrainer:
         train_losses = list()
         valid_losses = list()
 
-<<<<<<< HEAD
-        # Saving predictions through epochs
-        valid_preds = defaultdict(list) #epoch:values
-=======
         # Saving iou through epochs
         train_iou = list()
         valid_iou = list()
->>>>>>> main
 
         for epoch in range(1, epochs+1):
 
@@ -135,18 +130,10 @@ class AEModelTrainer:
                     # calculate loss
                     loss = loss_fn(predictions, targets)
                     # add batch loss to total loss
-<<<<<<< HEAD
-                    valid_loss += loss.item()
-                    # calculate jaccard score
-                    jaccard_scores.append(jaccard_score(targets.cpu().numpy(), predictions.cpu().numpy()))
-                    # extend current epoch with new predictions
-                    valid_preds.extend(predictions.cpu().numpy().reshape(-1,1))
-=======
                     valid_loss += loss.item() * data.size(0)
                     # calculate iou score
                     valid_iou.extend(iou(predictions.argmax(1), targets.argmax(1)))
                     
->>>>>>> main
             
             # Calculate average loss
             valid_loss /= len(val_loader)
