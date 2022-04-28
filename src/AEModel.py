@@ -8,11 +8,12 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torchvision.transforms.functional as TF
-from sklearn.metrics import jaccard_score
 from torch.utils.data import DataLoader
+from metrics import iou
 from torch.utils.tensorboard import SummaryWriter
 from torchvision import transforms as T
 from tqdm import tqdm
+from sklearn.metrics import jaccard_score
 
 
 class AEModelTrainer:
@@ -70,8 +71,14 @@ class AEModelTrainer:
         train_losses = list()
         valid_losses = list()
 
+<<<<<<< HEAD
         # Saving predictions through epochs
         valid_preds = defaultdict(list) #epoch:values
+=======
+        # Saving iou through epochs
+        train_iou = list()
+        valid_iou = list()
+>>>>>>> main
 
         for epoch in range(1, epochs+1):
 
@@ -84,7 +91,7 @@ class AEModelTrainer:
             self.model.train()
 
             # iterate over batches
-            for batch_idx, (data, targets) in enumerate(train_loader):
+            for batch_idx, (data, targets, rgb) in enumerate(train_loader):
                 
                 # move data to device
                 data = data.to(device)
@@ -94,7 +101,10 @@ class AEModelTrainer:
                 with torch.cuda.amp.autocast():
                     predictions = self.model(data)
                     loss = loss_fn(predictions, targets)
-                    
+                
+                # Add train iou
+                train_iou.extend(iou(predictions.argmax(1), targets.argmax(1))) # selecting the most probable class
+
                 # backward
                 optimizer.zero_grad()
                 scaler.scale(loss).backward()
@@ -105,18 +115,18 @@ class AEModelTrainer:
                 progress_bar.update(1)
 
                 # Add batch loss to total loss
-                train_loss += loss.item()
+                train_loss += loss.item() * data.size(0)
 
             # Calculate average loss
             train_loss /= len(train_loader)
 
-            # save jaccard score
-            jaccard_scores = list()
+            # Calculate average iou
+            avg_train_iou = sum(train_iou) / len(train_iou)
 
             # Calculate validation loss
             self.model.eval()
             with torch.no_grad():
-                for batch_idx, (data, targets) in enumerate(val_loader):
+                for batch_idx, (data, targets, rbg) in enumerate(val_loader):
                     # move data to device
                     data = data.to(device)
                     targets = targets.float().to(device)
@@ -125,17 +135,24 @@ class AEModelTrainer:
                     # calculate loss
                     loss = loss_fn(predictions, targets)
                     # add batch loss to total loss
+<<<<<<< HEAD
                     valid_loss += loss.item()
                     # calculate jaccard score
                     jaccard_scores.append(jaccard_score(targets.cpu().numpy(), predictions.cpu().numpy()))
                     # extend current epoch with new predictions
                     valid_preds.extend(predictions.cpu().numpy().reshape(-1,1))
+=======
+                    valid_loss += loss.item() * data.size(0)
+                    # calculate iou score
+                    valid_iou.extend(iou(predictions.argmax(1), targets.argmax(1)))
+                    
+>>>>>>> main
             
             # Calculate average loss
             valid_loss /= len(val_loader)
 
             # average jaccard score mIOU
-            jaccard_score = sum(jaccard_scores) / len(jaccard_scores)
+            avg_valid_iou = sum(valid_iou) / len(valid_iou)
 
             # write predictions to a file for comparison with other training sessions
             with open("valid_preds/"+log_name, "w") as file:
@@ -144,13 +161,14 @@ class AEModelTrainer:
             stop = time()
 
             # print training and validation loss for epoch
-            print(f'Epoch: {epoch}, avg train-loss: {round(train_loss, 4)}, avg val-loss: {round(valid_loss, 4)}, time: {stop-start}')
+            print(f'\nEpoch: {epoch}\navg train-loss: {round(train_loss, 4)}\navg val-loss: {round(valid_loss, 4)}\nmIoU-train: {avg_train_iou}\nmIoU-val: {avg_valid_iou}\ntime: {stop-start}\n')
 
             # Save losses
             train_losses.append(train_loss), valid_losses.append(valid_loss)
             writer.add_scalar('Loss/train', train_loss, epoch)
+            writer.add_scalar('mIoU/train', avg_train_iou, epoch)
             writer.add_scalar('Loss/val', valid_loss, epoch)
-            writer.add_scalar('Jaccard/val', jaccard_score, epoch)
+            writer.add_scalar('mIoU/val', avg_valid_iou, epoch)
 
         writer.close()
 
@@ -204,3 +222,7 @@ class AEModelTrainer:
             jaccard_scores.append(jaccard_score(target.cpu().numpy(), prediction.cpu().numpy()))
         
         return predictions, targets, jaccard_scores
+
+if __name__ == '__main__':
+    
+    print('hej')

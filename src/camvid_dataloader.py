@@ -1,38 +1,45 @@
 import os
-from PIL import Image
 from pathlib import Path
 
+import numpy as np
 import torch
+from PIL import Image
 from torchvision import transforms
-from config import CAMVID_DIR
 
-class CamVidDataSet():
-    def __init__(self, imgs_path, labels_path, transform):
-        self.imgs_path = imgs_path
-        self.labels_path = labels_path
+from config import CAMVID_DIR
+from utils import Color_map
+from utils import rgb_to_mask
+
+
+# https://github.com/UsamaI000/CamVid-Segmentation-Pytorch/tree/master/U-Net/src
+
+class CamVidDataset():
+
+    def __init__(self, img_pth, label_pth, transform):
+        self.img_pth = img_pth
+        self.label_pth = label_pth
         self.transform = transform
-        
-        self.imgs = os.listdir(self.imgs_path)
-        self.labels = list(map(lambda x: x[:-4] + '_L.png', self.imgs)) #see train_labels
-        
+        all_imgs = os.listdir(self.img_pth)
+        all_labels = [img_name[:-4] + '_L' + img_name[-4:] for img_name in all_imgs]
+        self.total_imgs = all_imgs
+        self.total_labels = all_labels
+        code2id, id2code, name2id, id2name = Color_map(CAMVID_DIR/'class_dict.csv')
+        self.id2code = id2code
+
     def __len__(self):
-        return len(self.imgs)
-        
+        return len(self.total_imgs)
+
     def __getitem__(self, idx):
-        img_loc = os.path.join(self.imgs_path, self.imgs[idx])
+        img_loc = os.path.join(self.img_pth, self.total_imgs[idx])
         image = Image.open(img_loc).convert("RGB")
-        
-        label_loc = os.path.join(self.labels_path, self.labels[idx])
+        label_loc = os.path.join(self.label_pth, self.total_labels[idx])
         label = Image.open(label_loc).convert("RGB")
-        
-        if self.transform is not None:
-            image = self.transform(image)
-            label = self.transform(label)
-        
-        image_tensor = transforms.Compose([transforms.ToTensor()])(image) 
-        label_tensor = transforms.Compose([transforms.PILToTensor()])(label)
-        
-        return image_tensor, label_tensor
+        out_image, rgb_label = self.transform(image), self.transform(label)
+        out_image = transforms.Compose([transforms.ToTensor()])(out_image) 
+        rgb_label = transforms.Compose([transforms.PILToTensor()])(rgb_label)
+        out_label = rgb_to_mask(torch.from_numpy(np.array(rgb_label)).permute(1,2,0), self.id2code)
+
+        return out_image, out_label, rgb_label.permute(0,1,2)
 
 if __name__ == '__main__':
     input_size = (128, 128)
@@ -41,4 +48,6 @@ if __name__ == '__main__':
     train_imgs_path = CAMVID_DIR / 'train'
     train_labels_path = CAMVID_DIR / 'train_labels'
 
-    camvid = CamVidDataSet(train_imgs_path, train_labels_path, transformation)
+    camvid = CamVidDataset(train_imgs_path, train_labels_path, transformation)
+
+    a = 1
