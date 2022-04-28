@@ -75,12 +75,17 @@ class AEModelTrainer:
         train_iou = list()
         valid_iou = list()
 
+        # Saving preds through epochs
+        preds = list()
+
         for epoch in range(1, epochs+1):
 
             start = time()
 
             train_loss: float = 0.0
             valid_loss: float = 0.0
+
+            epoch_preds = list()
 
             # set model to be trainable
             self.model.train()
@@ -133,6 +138,8 @@ class AEModelTrainer:
                     valid_loss += loss.item() * data.size(0)
                     # calculate iou score
                     valid_iou.extend(iou(predictions.argmax(1), targets.argmax(1)))
+
+                    epoch_preds.extend(predictions.flatten().cpu())
                     
             
             # Calculate average loss
@@ -141,9 +148,7 @@ class AEModelTrainer:
             # average jaccard score mIOU
             avg_valid_iou = sum(valid_iou) / len(valid_iou)
 
-            # write predictions to a file for comparison with other training sessions
-            with open("valid_preds/"+log_name, "w") as file:
-                file.write(json.dumps(valid_preds))
+            preds.append(epoch_preds)
 
             stop = time()
 
@@ -158,6 +163,11 @@ class AEModelTrainer:
             writer.add_scalar('mIoU/val', avg_valid_iou, epoch)
 
         writer.close()
+
+        #reshape to have one column with be the numbers for one epoch 
+        preds = np.array(preds).reshape(epochs, -1, 1) 
+
+        np.savetxt('valid_preds/'+log_name, preds, delimiter=",")
 
         return train_losses, valid_losses
 

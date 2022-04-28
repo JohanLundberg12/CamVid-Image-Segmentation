@@ -12,16 +12,26 @@ import json
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 
-def visualize_model_trajectories(model_trajectories1, model_trajectories2):
+def visualize_model_trajectories(m1_preds:np.ndarray, m2_preds:np.ndarray):
     tsne = TSNE(n_components=2, init="random", random_state=42)
+    m1_trajectory = list()
+    m2_trajectory = list()
 
-    model_trajectories1 = tsne.fit_transform(model_trajectories1)
-    model_trajectories2 = tsne.fit_transform(model_trajectories2)
+    for epoch, (preds1, preds2) in enumerate(zip(m1_preds, m2_preds)):
+        m1_epoch_trajectory = tsne.fit_transform(preds1)
+        m2_epoch_trajectory = tsne.fit_transform(preds2)
 
-    plt.scatter(model_trajectories1[:,0], model_trajectories1[:,1], c="b")
-    plt.scatter(model2[:,0], model1[:,1], c="r", label="")
+        m1_trajectory.append(m1_epoch_trajectory)
+        m2_trajectory.append(m2_epoch_trajectory)
 
-    
+    colors = ['red', 'blue']
+
+    for i, (epoch_trajectory_1, epoch_trajectory_2) in enumerate(zip(m1_trajectory, m2_trajectory)):
+        plt.scatter(epoch_trajectory_1[:, 0], epoch_trajectory_1[:, 1], c=colors[i], marker="o")
+        plt.scatter(epoch_trajectory_2[:, 0], epoch_trajectory_2[:, 1], c=colors[i], marker="^")
+
+    plt.savefig("test.png")
+
 
 
 if __name__ == "__main__":
