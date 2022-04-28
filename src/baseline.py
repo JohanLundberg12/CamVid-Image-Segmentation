@@ -116,9 +116,9 @@ if __name__ == "__main__":
     params = [p for p in model.parameters() if p.requires_grad]
 
     loss_fn = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(params, lr=5e-5)
+    optimizer = optim.Adam(params, lr=1)
     scaler = torch.cuda.amp.GradScaler()
 
     AEModel_Unet = AEModelTrainer(model)
 
-    AEModel_Unet.train(train_loader, val_loader, epochs=3, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name='unet_alt')
+    AEModel_Unet.train(train_loader, val_loader, epochs=3, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name='unet_alt_lr1')
