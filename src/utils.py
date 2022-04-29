@@ -1,4 +1,6 @@
+from typing import TypeVar, Tuple
 from pathlib import Path
+import numpy.typing as npt
 import numpy as np
 import pandas as pd
 
@@ -53,3 +55,17 @@ def mask_to_rgb(mask, color_map):
     for k in color_map.keys():
         output[single_layer==k] = color_map[k]
     return np.uint8(output)
+
+
+def write_3d_array(arr:npt.NDArray, fname:str):
+    with open(fname, "w") as outfile:
+        outfile.write('# Array shap: {0}\n'.format(arr.shape))
+
+        for data_slice in arr:
+            np.savetxt(outfile, data_slice, fmt='%-7.2f')
+            outfile.write('# New slice\n')
+
+T = TypeVar(int, int, int)
+
+def load_3d_array(fname:str, shape:Tuple[T, T, T]):
+    return np.loadtxt(fname).reshape(shape)

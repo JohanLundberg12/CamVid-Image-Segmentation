@@ -1,6 +1,7 @@
 from time import time
 from typing import Callable, List, Tuple
 
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -11,6 +12,8 @@ from torch.utils.tensorboard import SummaryWriter
 from torchvision import transforms as T
 from tqdm import tqdm
 from sklearn.metrics import jaccard_score
+
+from utils import write_3d_array
 
 
 class AEModelTrainer:
@@ -72,12 +75,17 @@ class AEModelTrainer:
         train_iou = list()
         valid_iou = list()
 
+        # Saving preds through epochs
+        all_preds = list() #shape: (epoch, image, pixel)
+
         for epoch in range(1, epochs+1):
 
             start = time()
 
             train_loss: float = 0.0
             valid_loss: float = 0.0
+
+            epoch_preds = list()
 
             # set model to be trainable
             self.model.train()
@@ -130,6 +138,8 @@ class AEModelTrainer:
                     valid_loss += loss.item() * data.size(0)
                     # calculate iou score
                     valid_iou.extend(iou(predictions.argmax(1), targets.argmax(1)))
+
+                    epoch_preds.extend(predictions.argmax(1).flatten(start_dim=1).cpu().tolist())
                     
             
             # Calculate average loss
@@ -137,6 +147,8 @@ class AEModelTrainer:
 
             # average jaccard score mIOU
             avg_valid_iou = sum(valid_iou) / len(valid_iou)
+
+            all_preds.append(epoch_preds)
 
             stop = time()
 
@@ -151,6 +163,9 @@ class AEModelTrainer:
             writer.add_scalar('mIoU/val', avg_valid_iou, epoch)
 
         writer.close()
+
+        all_preds = np.array(all_preds)
+        write_3d_array(all_preds, 'valid_preds/'+log_name)
 
         return train_losses, valid_losses
 
