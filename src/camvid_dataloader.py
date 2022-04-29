@@ -21,8 +21,8 @@ class CamVidDataset():
         self.transform = transform
         all_imgs = os.listdir(self.img_pth)
         all_labels = [img_name[:-4] + '_L' + img_name[-4:] for img_name in all_imgs]
-        self.total_imgs = all_imgs
-        self.total_labels = all_labels
+        self.total_imgs = all_imgs[:10]
+        self.total_labels = all_labels[:10]
         code2id, id2code, name2id, id2name = Color_map(CAMVID_DIR/'class_dict.csv')
         self.id2code = id2code
 
