@@ -1,3 +1,4 @@
+from pathlib import Path
 from time import time
 from typing import Callable, List, Tuple
 
@@ -6,14 +7,17 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torchvision.transforms.functional as TF
+from grpc import Call
 from torch.utils.data import DataLoader
-from metrics import iou
 from torch.utils.tensorboard import SummaryWriter
 from torchvision import transforms as T
 from tqdm import tqdm
-from sklearn.metrics import jaccard_score
 
-from utils import write_3d_array
+from config import CAMVID_DIR
+from metrics import iou
+from utils import Color_map, mask_to_rgb, write_3d_array
+
+code2id, id2code, name2id, id2name = Color_map(CAMVID_DIR/'class_dict.csv')
 
 
 class AEModelTrainer:
@@ -167,9 +171,11 @@ class AEModelTrainer:
         all_preds = np.array(all_preds)
         write_3d_array(all_preds, 'valid_preds/'+log_name)
 
+        torch.save(self.model.state_dict(), 'models/'+log_name+'.pt')
+
         return train_losses, valid_losses
 
-    def predict(self, test_loader: DataLoader) -> List[Tuple[torch.Tensor, torch.Tensor, List[float]]]:
+    def predict(self, test_loader: DataLoader, model_path: Path, loss_fn: Callable) -> List[Tuple[torch.Tensor, torch.Tensor, List[float]]]:
         """
         Predict the labels for the test set and compute the jaccard score.
 
@@ -184,39 +190,47 @@ class AEModelTrainer:
             List of tuples containing predictions, targets and jaccard scores
         """
 
+        self.model.load_state_dict(torch.load(f'{model_path}.pt'))
 
         # Get device
         device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         print(f'Using {device} as backend')
         
+        # Saving results
+        iou_scores = list()
+        preds = list()
+        test_loss = 0.0
+
         # activate evaluation mode
         self.model.eval()
 
-
+        # Iterate over batches
         with torch.no_grad():
             # Create empty list for predictions and targets
             predictions = list()
             targets = list()
-
-            # Iterate over batches
-            for batch_idx, (data, target) in enumerate(test_loader):
-                
+            for batch_idx, (data, targets, rbg) in enumerate(test_loader):
                 # move data to device
                 data = data.to(device)
-                target = target.float().to(device)
+                targets = targets.float().to(device)
+                # forward
+                predictions = self.model(data)
+                # calculate loss
+                loss = loss_fn(predictions, targets)
+                # add batch loss to total loss
+                test_loss += loss.item() * data.size(0)
+                # calculate iou score
+                iou_scores.extend(iou(predictions.argmax(1), targets.argmax(1)))
 
-                with torch.cuda.amp.autocast():
-                    # forward
-                    prediction = self.model(data)
-                    predictions.append(prediction)
-                    targets.append(target)
+                preds.extend(mask_to_rgb(predictions, id2code))
 
-        # calculate jaccard score
-        jaccard_scores = list()
-        for prediction, target in zip(predictions, targets):
-            jaccard_scores.append(jaccard_score(target.cpu().numpy(), prediction.cpu().numpy()))
+        # average jaccard score mIOU
+        avg_test_iou = sum(iou_scores) / len(iou_scores)
+
+        # Calculate average loss
+        test_loss /= len(test_loader)
         
-        return predictions, targets, jaccard_scores
+        return  preds, avg_test_iou, test_loss
 
 if __name__ == '__main__':
     

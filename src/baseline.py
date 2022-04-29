@@ -7,7 +7,7 @@ from torchvision import transforms as T
 from AEModel import AEModelTrainer
 
 from camvid_dataloader import CamVidDataset
-from config import CAMVID_DIR
+from config import CAMVID_DIR, MODEL_DIR
 
 
 class DoubleConv(nn.Module):
@@ -105,6 +105,7 @@ if __name__ == "__main__":
     # Define training and validation datasets
     camvid_train = CamVidDataset(train_imgs_path, train_labels_path, transformation)
     camvid_val = CamVidDataset(val_imgs_path, val_labels_path, transformation)
+    camvid_test = CamVidDataset(test_imgs_path, test_labels_path, transformation)
 
     train_loader = DataLoader(
         camvid_train,
@@ -121,6 +122,14 @@ if __name__ == "__main__":
         shuffle=False,
     )
 
+    test_loader = DataLoader(
+        camvid_test,
+        batch_size=2,
+        num_workers=4,
+        pin_memory=True,
+        shuffle=False,
+    )
+
     model = UNET(in_channels=3, out_channels=3)
 
     params = [p for p in model.parameters() if p.requires_grad]
@@ -131,4 +140,12 @@ if __name__ == "__main__":
 
     AEModel_Unet = AEModelTrainer(model)
 
-    AEModel_Unet.train(train_loader, val_loader, epochs=3, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name='unet_alt_lr0.00001')
+    model_name = 'unet'
+
+    # train_losses, valid_losses = AEModel_Unet.train(train_loader, val_loader, epochs=2, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name=model_name)
+
+    new_model = AEModelTrainer(model)
+
+    preds, avg_test_iou, test_loss = new_model.predict(test_loader, MODEL_DIR / model_name, loss_fn)
+
+    a = 1
