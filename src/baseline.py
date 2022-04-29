@@ -33,7 +33,7 @@ class UNET(nn.Module):
         super(UNET, self).__init__()
         self.ups = nn.ModuleList()
         self.downs = nn.ModuleList()
-        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)  
 
         # Down part of UNET
         for feature in features:
@@ -52,9 +52,8 @@ class UNET(nn.Module):
         self.bottleneck = DoubleConv(features[-1], features[-1]*2)
         self.final_conv = nn.Conv2d(features[0], n_classes, kernel_size=1)
 
-        
-    
-    def forward(self, x):
+
+    def encoder(self,x):
         skip_connections = []
 
         for down in self.downs:
@@ -62,9 +61,12 @@ class UNET(nn.Module):
             skip_connections.append(x)
             x = self.pool(x)
 
-        x = self.bottleneck(x)
-        skip_connections = skip_connections[::-1]
+        z = self.bottleneck(x)
 
+        return z, skip_connections
+    
+    
+    def decoder(self, x, skip_connections):
         for idx in range(0, len(self.ups), 2):
             x = self.ups[idx](x)
             skip_connection = skip_connections[idx//2]
@@ -74,6 +76,14 @@ class UNET(nn.Module):
 
             concat_skip = torch.cat((skip_connection, x), dim=1)
             x = self.ups[idx+1](concat_skip)
+
+        return x
+        
+    
+    def forward(self, x):
+        z, skip_connections = self.encoder(x)
+        skip_connections = skip_connections[::-1]
+        x = self.decoder(z, skip_connections)
 
         return self.final_conv(x)  
     
@@ -116,9 +126,9 @@ if __name__ == "__main__":
     params = [p for p in model.parameters() if p.requires_grad]
 
     loss_fn = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(params, lr=1)
+    optimizer = optim.Adam(params, lr=0.00001)
     scaler = torch.cuda.amp.GradScaler()
 
     AEModel_Unet = AEModelTrainer(model)
 
-    AEModel_Unet.train(train_loader, val_loader, epochs=3, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name='unet_alt_lr1')
+    AEModel_Unet.train(train_loader, val_loader, epochs=3, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name='unet_alt_lr0.00001')
