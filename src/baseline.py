@@ -139,14 +139,16 @@ if __name__ == "__main__":
 
     loss_fn = nn.CrossEntropyLoss()
     optimizer = optim.Adam(params, lr=0.00001)
+    optimizer = optim.AdamW(params, lr=0.00001)
     scaler = torch.cuda.amp.GradScaler()
 
     AEModel_Unet = AEModelTrainer(model)
 
-    model_name = 'unet'
+    model_name = 'unet_100_adamw'
 
     train_losses, valid_losses = AEModel_Unet.train(
-        train_loader, val_loader, epochs=70, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name=model_name)
+        train_loader, val_loader, epochs=100, optimizer=optimizer,
+        loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
     new_model = AEModelTrainer(model)
 

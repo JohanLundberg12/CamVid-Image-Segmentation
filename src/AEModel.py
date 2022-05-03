@@ -173,7 +173,7 @@ class AEModelTrainer:
         writer.close()
 
         all_preds = np.array(all_preds)
-        write_3d_array(all_preds, 'valid_preds/'+log_name+".txt")
+        write_3d_array(all_preds, 'valid_preds/' + log_name + ".txt")
 
         isExist = os.path.exists('models')
         if not isExist:
@@ -206,6 +206,9 @@ class AEModelTrainer:
             'cuda') if torch.cuda.is_available() else torch.device('cpu')
         print(f'Using {device} as backend')
 
+        # Cast model to device
+        self.model.to(device)
+
         # Saving results
         iou_scores = list()
         preds = list()
@@ -222,7 +225,7 @@ class AEModelTrainer:
             for batch_idx, (data, targets, rbg) in enumerate(test_loader):
                 # move data to device
                 data = data.to(device)
-                targets = targets.float().to(device)
+                targets = targets.to(device)
                 # forward
                 predictions = self.model(data)
                 # calculate loss
@@ -233,7 +236,7 @@ class AEModelTrainer:
                 iou_scores.extend(
                     iou(predictions.argmax(1), targets.argmax(1)))
 
-                preds.extend(mask_to_rgb(predictions, id2code))
+                preds.extend(mask_to_rgb(predictions.cpu().numpy(), id2code))
 
         # average jaccard score mIOU
         avg_test_iou = sum(iou_scores) / len(iou_scores)
