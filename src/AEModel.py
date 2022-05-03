@@ -173,7 +173,7 @@ class AEModelTrainer:
         writer.close()
 
         all_preds = np.array(all_preds)
-        write_3d_array(all_preds, 'valid_preds/' + log_name)
+        write_3d_array(all_preds, 'valid_preds/'+log_name+".txt")
 
         isExist = os.path.exists('models')
         if not isExist:
