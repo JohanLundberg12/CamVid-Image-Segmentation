@@ -1,3 +1,4 @@
+from typing import List
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -8,6 +9,7 @@ from AEModel import AEModelTrainer
 
 from camvid_dataloader import CamVidDataset
 from config import CAMVID_DIR, MODEL_DIR
+
 
 
 class DoubleConv(nn.Module):
@@ -26,19 +28,38 @@ class DoubleConv(nn.Module):
         return self.conv(x)
 
 
-class UNET(nn.Module):
-    def __init__(
-            self, in_channels=3, out_channels=1, features=[64, 128, 256, 512], n_classes: int = 32
-    ):
-        super(UNET, self).__init__()
-        self.ups = nn.ModuleList()
+class UNetEncoder():
+    def __init__(self, in_channels, features:List[int]=[64, 128, 256, 512]):
         self.downs = nn.ModuleList()
-        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)  
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.bottleneck = DoubleConv(features[-1], features[-1]*2)
 
         # Down part of UNET
         for feature in features:
             self.downs.append(DoubleConv(in_channels, feature))
             in_channels = feature
+    
+    
+    def forward(self, x):
+        skip_connections = []
+
+        for down in self.downs:
+            x = down(x)
+            skip_connections.append(x)
+            x = self.pool(x)
+        
+        z = self.bottleneck(x)
+        
+        return z, skip_connections
+
+
+class UNET(nn.Module):
+    def __init__(
+            self, in_channels=3, out_channels=1, features=[64, 128, 256, 512], n_classes: int = 32, 
+    ):
+        super(UNET, self).__init__()
+        self.encoder = UNetEncoder(in_channels, features)
+        self.ups = nn.ModuleList()
 
         # Up part of UNET
         for feature in reversed(features):
@@ -52,7 +73,7 @@ class UNET(nn.Module):
         self.bottleneck = DoubleConv(features[-1], features[-1]*2)
         self.final_conv = nn.Conv2d(features[0], n_classes, kernel_size=1)
 
-
+    
     def encoder(self,x):
         skip_connections = []
 
@@ -64,7 +85,7 @@ class UNET(nn.Module):
         z = self.bottleneck(x)
 
         return z, skip_connections
-    
+
     
     def decoder(self, x, skip_connections):
         for idx in range(0, len(self.ups), 2):
@@ -105,7 +126,7 @@ if __name__ == "__main__":
     # Define training and validation datasets
     camvid_train = CamVidDataset(train_imgs_path, train_labels_path, transformation)
     camvid_val = CamVidDataset(val_imgs_path, val_labels_path, transformation)
-    camvid_test = CamVidDataset(test_imgs_path, test_labels_path, transformation)
+    #camvid_test = CamVidDataset(test_imgs_path, test_labels_path, transformation)
 
     train_loader = DataLoader(
         camvid_train,
@@ -122,13 +143,13 @@ if __name__ == "__main__":
         shuffle=False,
     )
 
-    test_loader = DataLoader(
-        camvid_test,
-        batch_size=2,
-        num_workers=4,
-        pin_memory=True,
-        shuffle=False,
-    )
+    #test_loader = DataLoader(
+    #    camvid_test,
+    #    batch_size=2,
+    #    num_workers=4,
+    #    pin_memory=True,
+    #    shuffle=False,
+    #)
 
     model = UNET(in_channels=3, out_channels=3)
 
@@ -142,10 +163,10 @@ if __name__ == "__main__":
 
     model_name = 'unet'
 
-    # train_losses, valid_losses = AEModel_Unet.train(train_loader, val_loader, epochs=2, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name=model_name)
+    train_losses, valid_losses = AEModel_Unet.train(train_loader, val_loader, epochs=2, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
-    new_model = AEModelTrainer(model)
+    #new_model = AEModelTrainer(model)
 
-    preds, avg_test_iou, test_loss = new_model.predict(test_loader, MODEL_DIR / model_name, loss_fn)
+    #preds, avg_test_iou, test_loss = new_model.predict(test_loader, MODEL_DIR / model_name, loss_fn)
 
     a = 1
