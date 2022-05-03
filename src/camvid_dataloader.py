@@ -20,10 +20,12 @@ class CamVidDataset():
         self.label_pth = label_pth
         self.transform = transform
         all_imgs = os.listdir(self.img_pth)
-        all_labels = [img_name[:-4] + '_L' + img_name[-4:] for img_name in all_imgs]
-        self.total_imgs = all_imgs[:10]
-        self.total_labels = all_labels[:10]
-        code2id, id2code, name2id, id2name = Color_map(CAMVID_DIR/'class_dict.csv')
+        all_labels = [img_name[:-4] + '_L' + img_name[-4:]
+                      for img_name in all_imgs]
+        self.total_imgs = all_imgs
+        self.total_labels = all_labels
+        code2id, id2code, name2id, id2name = Color_map(
+            CAMVID_DIR / 'class_dict.csv')
         self.id2code = id2code
 
     def __len__(self):
@@ -35,11 +37,15 @@ class CamVidDataset():
         label_loc = os.path.join(self.label_pth, self.total_labels[idx])
         label = Image.open(label_loc).convert("RGB")
         out_image, rgb_label = self.transform(image), self.transform(label)
-        out_image = transforms.Compose([transforms.ToTensor()])(out_image) 
+        out_image = transforms.Compose([transforms.ToTensor()])(out_image)
         rgb_label = transforms.Compose([transforms.PILToTensor()])(rgb_label)
-        out_label = rgb_to_mask(torch.from_numpy(np.array(rgb_label)).permute(1,2,0), self.id2code)
+        out_label = rgb_to_mask(
+            torch.from_numpy(
+                np.array(rgb_label)).permute(
+                1, 2, 0), self.id2code)
 
-        return out_image, out_label, rgb_label.permute(0,1,2)
+        return out_image, out_label, rgb_label.permute(0, 1, 2)
+
 
 if __name__ == '__main__':
     input_size = (128, 128)
