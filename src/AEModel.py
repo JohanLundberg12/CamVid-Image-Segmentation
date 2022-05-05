@@ -90,7 +90,7 @@ class AEModelTrainer:
             train_loss: float = 0.0
             valid_loss: float = 0.0
 
-            epoch_preds = list()
+            #epoch_preds = list()
 
             # set model to be trainable
             self.model.train()
@@ -156,7 +156,7 @@ class AEModelTrainer:
             # average jaccard score mIOU
             avg_valid_iou = sum(valid_iou) / len(valid_iou)
 
-            all_preds.append(epoch_preds)
+            #all_preds.append(epoch_preds)
 
             stop = time()
 
