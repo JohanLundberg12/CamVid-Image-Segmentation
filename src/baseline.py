@@ -2,41 +2,29 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torchvision.transforms.functional as TF
-from torch.utils.data import DataLoader
 from torchvision import transforms as T
-from AEModel import AEModelTrainer
+from torch.utils.data import DataLoader
 
+from VGG11 import VGG11
+from DoubleConv import DoubleConv
+from AEModel import AEModelTrainer
 from camvid_dataloader import CamVidDataset
 from config import CAMVID_DIR, MODEL_DIR
 
 from argparse import ArgumentParser
 
 
-class DoubleConv(nn.Module):
-    def __init__(self, in_channels, out_channels):
-        super(DoubleConv, self).__init__()
-        self.conv = nn.Sequential(
-            nn.Conv2d(in_channels, out_channels, 3, 1, 1, bias=False),
-            nn.BatchNorm2d(out_channels),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(out_channels, out_channels, 3, 1, 1, bias=False),
-            nn.BatchNorm2d(out_channels),
-            nn.ReLU(inplace=True),
-        )
-
-    def forward(self, x):
-        return self.conv(x)
-
-
 class UNET(nn.Module):
     def __init__(
-            self, in_channels=3, out_channels=1, features=[64, 128, 256, 512], n_classes: int = 32
+            self, in_channels=3, out_channels=1, features=[64, 128, 256, 512], n_classes: int = 32, 
     ):
         super(UNET, self).__init__()
-        self.ups = nn.ModuleList()
         self.downs = nn.ModuleList()
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
 
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.bottleneck = DoubleConv(features[-1], features[-1]*2)
+        
         # Down part of UNET
         for feature in features:
             self.downs.append(DoubleConv(in_channels, feature))
@@ -151,7 +139,7 @@ if __name__ == "__main__":
         shuffle=False,
     )
 
-    model = UNET(in_channels=3, out_channels=3)
+    model = UNETVGG11(in_channels=3, out_channels=3)
 
     params = [p for p in model.parameters() if p.requires_grad]
 
@@ -169,7 +157,7 @@ if __name__ == "__main__":
         train_loader, val_loader, epochs=40, optimizer=optimizer,
         loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
-    new_model = AEModelTrainer(model)
+    #new_model = AEModelTrainer(model)
 
     preds, avg_test_iou, test_loss = new_model.predict(
         test_loader, MODEL_DIR / model_name, loss_fn)
