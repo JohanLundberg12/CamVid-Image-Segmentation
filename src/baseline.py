@@ -18,7 +18,7 @@ class UNET(nn.Module):
     ):
         super(UNET, self).__init__()
         self.downs = nn.ModuleList()
-        self.ups = nn.ModuleList()
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
 
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
         self.bottleneck = DoubleConv(features[-1], features[-1]*2)
@@ -32,15 +32,14 @@ class UNET(nn.Module):
         for feature in reversed(features):
             self.ups.append(
                 nn.ConvTranspose2d(
-                    feature*2, feature, kernel_size=2, stride=2,
+                    feature * 2, feature, kernel_size=2, stride=2,
                 )
             )
-            self.ups.append(DoubleConv(feature*2, feature))
+            self.ups.append(DoubleConv(feature * 2, feature))
 
-        self.bottleneck = DoubleConv(features[-1], features[-1]*2)
+        self.bottleneck = DoubleConv(features[-1], features[-1] * 2)
         self.final_conv = nn.Conv2d(features[0], n_classes, kernel_size=1)
 
-    
     def encoder(self, x):
         skip_connections = []
 
@@ -53,28 +52,26 @@ class UNET(nn.Module):
 
         return z, skip_connections
 
-    
     def decoder(self, x, skip_connections):
         for idx in range(0, len(self.ups), 2):
             x = self.ups[idx](x)
-            skip_connection = skip_connections[idx//2]
+            skip_connection = skip_connections[idx // 2]
 
             if x.shape != skip_connection.shape:
                 x = TF.resize(x, size=skip_connection.shape[2:])
 
             concat_skip = torch.cat((skip_connection, x), dim=1)
-            x = self.ups[idx+1](concat_skip)
+            x = self.ups[idx + 1](concat_skip)
 
         return x
-        
-    
+
     def forward(self, x):
         z, skip_connections = self.encoder(x)
         skip_connections = skip_connections[::-1]
         x = self.decoder(z, skip_connections)
 
-        return self.final_conv(x)  
-    
+        return self.final_conv(x)
+
 
 if __name__ == "__main__":
 
@@ -91,32 +88,38 @@ if __name__ == "__main__":
     transformation = T.Compose([T.Resize(input_size, 0)])
 
     # Define training and validation datasets
-    camvid_train = CamVidDataset(train_imgs_path, train_labels_path, transformation)
+    camvid_train = CamVidDataset(
+        train_imgs_path,
+        train_labels_path,
+        transformation)
     camvid_val = CamVidDataset(val_imgs_path, val_labels_path, transformation)
-    #camvid_test = CamVidDataset(test_imgs_path, test_labels_path, transformation)
+    camvid_test = CamVidDataset(
+        test_imgs_path,
+        test_labels_path,
+        transformation)
 
     train_loader = DataLoader(
         camvid_train,
-        batch_size=2,
+        batch_size=12,
         num_workers=4,
         pin_memory=True,
         shuffle=False,
     )
     val_loader = DataLoader(
         camvid_val,
-        batch_size=2,
+        batch_size=8,
         num_workers=4,
         pin_memory=True,
         shuffle=False,
     )
 
-    #test_loader = DataLoader(
-    #    camvid_test,
-    #    batch_size=2,
-    #    num_workers=4,
-    #    pin_memory=True,
-    #    shuffle=False,
-    #)
+    test_loader = DataLoader(
+        camvid_test,
+        batch_size=8,
+        num_workers=4,
+        pin_memory=True,
+        shuffle=False,
+    )
 
     model = UNETVGG11(in_channels=3, out_channels=3)
 
@@ -124,16 +127,22 @@ if __name__ == "__main__":
 
     loss_fn = nn.CrossEntropyLoss()
     optimizer = optim.Adam(params, lr=0.00001)
+    optimizer = optim.AdamW(params, lr=0.00001)
     scaler = torch.cuda.amp.GradScaler()
 
     AEModel_Unet = AEModelTrainer(model)
 
-    model_name = 'unet'
+    model_name = 'unet_100_adamw'
 
-    train_losses, valid_losses = AEModel_Unet.train(train_loader, val_loader, epochs=50, optimizer=optimizer, loss_fn=loss_fn, scaler=scaler, log_name=model_name)
+    train_losses, valid_losses = AEModel_Unet.train(
+        train_loader, val_loader, epochs=100, optimizer=optimizer,
+        loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
     #new_model = AEModelTrainer(model)
 
-    #preds, avg_test_iou, test_loss = new_model.predict(test_loader, MODEL_DIR / model_name, loss_fn)
+    preds, avg_test_iou, test_loss = new_model.predict(
+        test_loader, MODEL_DIR / model_name, loss_fn)
+
+    print(f'Test loss: {test_loss}, Test IoU: {avg_test_iou}')
 
     a = 1
