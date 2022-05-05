@@ -130,6 +130,6 @@ dmypy.json
 
 # Folders
 data/
-runs/
+models/
 valid_preds/
 .mlprojekt/

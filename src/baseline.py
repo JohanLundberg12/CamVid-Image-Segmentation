@@ -9,6 +9,8 @@ from AEModel import AEModelTrainer
 from camvid_dataloader import CamVidDataset
 from config import CAMVID_DIR, MODEL_DIR
 
+from argparse import ArgumentParser
+
 
 class DoubleConv(nn.Module):
     def __init__(self, in_channels, out_channels):
@@ -87,11 +89,17 @@ class UNET(nn.Module):
 
 if __name__ == "__main__":
 
+    parser = ArgumentParser()
+
+    parser.add_argument('--augmentation', type=str)
+
+    args = parser.parse_args()
+
     # Specify paths
-    train_imgs_path = CAMVID_DIR / 'train'
+    train_imgs_path = CAMVID_DIR / 'train_augment'
     val_imgs_path = CAMVID_DIR / 'val'
     test_imgs_path = CAMVID_DIR / 'test'
-    train_labels_path = CAMVID_DIR / 'train_labels'
+    train_labels_path = CAMVID_DIR / 'train_labels_augment'
     val_labels_path = CAMVID_DIR / 'val_labels'
     test_labels_path = CAMVID_DIR / 'test_labels'
 
@@ -99,20 +107,30 @@ if __name__ == "__main__":
     input_size = (128, 128)
     transformation = T.Compose([T.Resize(input_size, 0)])
 
+    augmentations = ['00', '01', '02', '03', '04', '05', '06']
+    # augmentations.append(args.augmentation)
+
     # Define training and validation datasets
     camvid_train = CamVidDataset(
         train_imgs_path,
         train_labels_path,
-        transformation)
-    camvid_val = CamVidDataset(val_imgs_path, val_labels_path, transformation)
+        transformation,
+        train=True,
+        augmentations=augmentations)
+    camvid_val = CamVidDataset(
+        val_imgs_path,
+        val_labels_path,
+        transformation,
+        train=False)
     camvid_test = CamVidDataset(
         test_imgs_path,
         test_labels_path,
-        transformation)
+        transformation,
+        train=False)
 
     train_loader = DataLoader(
         camvid_train,
-        batch_size=12,
+        batch_size=16,
         num_workers=4,
         pin_memory=True,
         shuffle=False,
@@ -144,10 +162,11 @@ if __name__ == "__main__":
 
     AEModel_Unet = AEModelTrainer(model)
 
-    model_name = 'unet_100_adamw'
+    #model_name = f'unet_40_00_{args.augmentation}'
+    model_name = f'unet_40_all'
 
     train_losses, valid_losses = AEModel_Unet.train(
-        train_loader, val_loader, epochs=100, optimizer=optimizer,
+        train_loader, val_loader, epochs=40, optimizer=optimizer,
         loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
     new_model = AEModelTrainer(model)
