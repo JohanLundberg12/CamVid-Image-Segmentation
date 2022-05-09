@@ -44,7 +44,7 @@ For each experiment, we obtained the following best results:
 
 | *Model* 	| *Data* 	| *Test mIoU* 	| *Test loss* 	|
 |:---------:	|:--------:	|:-------------:	|:-------------:	|
-|    UNET   	| Original 	|               	|               	|
+|    UNET   	| Original 	|      50.81         	|   14.63            	|
 |    UNET   	|   O + 1  	|     61.93     	|     11.61     	|
 |    UNET   	|    All   	|     66.81     	|      11.28         	|
 |   VGG11   	| Original 	|     61.29      	|      13.81            	|
