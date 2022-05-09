@@ -1,8 +1,8 @@
 from typing import List
 import torch
 import torch.nn as nn
+import torchvision.transforms.functional as TF
 from torchvision import models
-from torchvision import transforms as T
 
 from DoubleConv import DoubleConv
 

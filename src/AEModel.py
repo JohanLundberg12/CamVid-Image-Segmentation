@@ -81,7 +81,7 @@ class AEModelTrainer:
         valid_iou = list()
 
         # Saving preds through epochs
-        all_preds = list()  # shape: (epoch, image, pixel)
+        #all_preds = list()  # shape: (epoch, image, pixel)
 
         for epoch in range(1, epochs + 1):
 

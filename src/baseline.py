@@ -139,7 +139,7 @@ if __name__ == "__main__":
         shuffle=False,
     )
 
-    model = UNETVGG11(in_channels=3, out_channels=3)
+    model = VGG11(in_channels=3, out_channels=3)
 
     params = [p for p in model.parameters() if p.requires_grad]
 
@@ -148,20 +148,16 @@ if __name__ == "__main__":
     optimizer = optim.AdamW(params, lr=0.00001)
     scaler = torch.cuda.amp.GradScaler()
 
-    AEModel_Unet = AEModelTrainer(model)
+    AEModel = AEModelTrainer(model)
 
     #model_name = f'unet_40_00_{args.augmentation}'
     model_name = f'unet_40_all'
 
-    train_losses, valid_losses = AEModel_Unet.train(
-        train_loader, val_loader, epochs=40, optimizer=optimizer,
+    train_losses, valid_losses = AEModel.train(
+        train_loader, val_loader, epochs=2, optimizer=optimizer,
         loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
-    #new_model = AEModelTrainer(model)
-
-    preds, avg_test_iou, test_loss = new_model.predict(
+    preds, avg_test_iou, test_loss = AEModel.predict(
         test_loader, MODEL_DIR / model_name, loss_fn)
 
     print(f'Test loss: {test_loss}, Test IoU: {avg_test_iou}')
-
-    a = 1
