@@ -95,8 +95,13 @@ if __name__ == "__main__":
     input_size = (128, 128)
     transformation = T.Compose([T.Resize(input_size, 0)])
 
-    augmentations = ['00', '01', '02', '03', '04', '05', '06']
-    # augmentations.append(args.augmentation)
+    augmentations = ['00']
+    if args.augmentation == 'all':
+        augmentations = ['00', '01', '02', '03', '04', '05', '06']
+    elif args.augmentation == 'none':
+        augmentations = ['00']
+    else:
+        augmentations.append(args.augmentation)
 
     # Define training and validation datasets
     camvid_train = CamVidDataset(
@@ -139,7 +144,7 @@ if __name__ == "__main__":
         shuffle=False,
     )
 
-    model = VGG11(in_channels=3, out_channels=3)
+    model = UNET(in_channels=3, out_channels=3)
 
     params = [p for p in model.parameters() if p.requires_grad]
 
@@ -150,8 +155,8 @@ if __name__ == "__main__":
 
     AEModel = AEModelTrainer(model)
 
-    #model_name = f'unet_40_00_{args.augmentation}'
-    model_name = f'unet_40_all'
+    model_name = f'unet_40_00_{args.augmentation}'
+    #model_name = f'unet_40_all'
 
     train_losses, valid_losses = AEModel.train(
         train_loader, val_loader, epochs=2, optimizer=optimizer,

@@ -1,9 +1,17 @@
+from argparse import ArgumentParser
 from typing import List
+
 import torch
 import torch.nn as nn
+import torch.optim as optim
 import torchvision.transforms.functional as TF
+from torch.utils.data import DataLoader
 from torchvision import models
+from torchvision import transforms as T
 
+from AEModel import AEModelTrainer
+from camvid_dataloader import CamVidDataset
+from config import CAMVID_DIR, MODEL_DIR
 from DoubleConv import DoubleConv
 
 
@@ -88,3 +96,100 @@ class VGG11(nn.Module):
             x = self.ups[idx+1](concat_skip)
 
         return self.final_conv(x)
+
+if __name__ == '__main__':
+
+    parser = ArgumentParser()
+
+    parser.add_argument('--augmentation', type=str)
+    parser.add_argument('--pretraining', type=bool, default=True)
+
+
+    args = parser.parse_args()
+
+    # Specify paths
+    train_imgs_path = CAMVID_DIR / 'train_augment'
+    val_imgs_path = CAMVID_DIR / 'val'
+    test_imgs_path = CAMVID_DIR / 'test'
+    train_labels_path = CAMVID_DIR / 'train_labels_augment'
+    val_labels_path = CAMVID_DIR / 'val_labels'
+    test_labels_path = CAMVID_DIR / 'test_labels'
+
+    # Define input size and transformations
+    input_size = (128, 128)
+    transformation = T.Compose([T.Resize(input_size, 0)])
+
+    augmentations = ['00']
+    if args.augmentation == 'all':
+        augmentations = ['00', '01', '02', '03', '04', '05', '06']
+    elif args.augmentation == 'none':
+        augmentations = ['00']
+    else:
+        augmentations.append(args.augmentation)
+
+    # Define training and validation datasets
+    camvid_train = CamVidDataset(
+        train_imgs_path,
+        train_labels_path,
+        transformation,
+        train=True,
+        augmentations=augmentations)
+    camvid_val = CamVidDataset(
+        val_imgs_path,
+        val_labels_path,
+        transformation,
+        train=False)
+    camvid_test = CamVidDataset(
+        test_imgs_path,
+        test_labels_path,
+        transformation,
+        train=False)
+
+    train_loader = DataLoader(
+        camvid_train,
+        batch_size=16,
+        num_workers=4,
+        pin_memory=True,
+        shuffle=False,
+    )
+    val_loader = DataLoader(
+        camvid_val,
+        batch_size=8,
+        num_workers=4,
+        pin_memory=True,
+        shuffle=False,
+    )
+
+    test_loader = DataLoader(
+        camvid_test,
+        batch_size=8,
+        num_workers=4,
+        pin_memory=True,
+        shuffle=False,
+    )
+
+    model = VGG11(in_channels=3, out_channels=3, pretrained=args.pretraining)
+
+    params = [p for p in model.parameters() if p.requires_grad]
+
+    loss_fn = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(params, lr=0.00001)
+    optimizer = optim.AdamW(params, lr=0.00001)
+    scaler = torch.cuda.amp.GradScaler()
+
+    AEModel = AEModelTrainer(model)
+
+    if args.pretraining:
+        model_name = f'vgg_p_40_00_{args.augmentation}'
+    else:
+        model_name = f'vgg_40_00_{args.augmentation}'
+
+    train_losses, valid_losses = AEModel.train(
+        train_loader, val_loader, epochs=2, optimizer=optimizer,
+        loss_fn=loss_fn, scaler=scaler, log_name=model_name)
+
+    preds, avg_test_iou, test_loss = AEModel.predict(
+        test_loader, MODEL_DIR / model_name, loss_fn)
+
+    print(f'Model name: {model_name}')
+    print(f'Test loss: {test_loss}, Test IoU: {avg_test_iou}')
