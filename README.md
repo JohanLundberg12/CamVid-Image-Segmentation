@@ -38,104 +38,17 @@ We, of course, transformed labels along with the data when necessary.
 We used two different model, UNET and VGG11. Each of these models were tested on the raw data, each of the six augmentations of the data with the raw data, and all the augmentations of the data combined with the raw data. We tested both with pretraining and without pretraining on the VGG11 model.
 For each experiment, we obtained the following best results:
 
-**UNET originial data:** 
-
-- Parameters: 
-  - Augmentation: None
-  - Learning rate: 0.0001
-  - Epochs: 100
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU: 60.6
-- Test loss: 10.40
-
-**UNET original data + one augmented data method:**
-
-- Parameters: 
-  - Augmentation: 01
-  - Learning rate: 0.0001
-  - Epochs: 40
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU: 61.93
-- Test loss: 11.61
-
-**UNET all data:**
-
-- Parameters: 
-  - Augmentation: All
-  - Learning rate: 0.0001
-  - Epochs: 40
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU: 66.81
-- Test loss: **??**
-
-**VGG11 not pretrained originial data:**
-
-- Parameters:
-  - Augmentation: None
-  - Learning rate: 0.0001
-  - Epochs: 40
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU: **??**
-- Test loss: **??**
-
-**VGG11 not pretrained original data + one augmented data method:**
-
-- Parameters: 
-  - Augmentation:
-  - Learning rate: 0.0001
-  - Epochs: 40
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU:
-- Test loss:
-
-**vGG11 not pretrained all data:**
-
-- Parameters: 
-  - Augmentation:
-  - Learning rate: 0.0001
-  - Epochs: 40
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU:
-- Test loss:
-
-**VGG11 pretrained originial data:**
-
-- Parameters:
-  - Augmentation: None
-  - Learning rate: 0.0001
-  - Epochs: 40
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU:
-- Test loss:
-
-**VGG11 pretrained original data + one augmented data method:**
-
-- Parameters: 
-  - Augmentation:
-  - Learning rate: 0.0001
-  - Epochs: 40
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU:
-- Test loss:
-
-**VGG11 pretrained all data:**
-
-- Parameters: 
-  - Augmentation:
-  - Learning rate: 0.0001
-  - Epochs: 40
-  - Optimization: AdamW
-  - Loss function: CE
-- Test mIoU:
-- Test loss:
+| *Model* 	| *Data* 	| *Test mIoU* 	| *Test loss* 	|
+|:---------:	|:--------:	|:-------------:	|:-------------:	|
+|    UNET   	| Original 	|               	|               	|
+|    UNET   	|   O + 1  	|     61.93     	|     11.61     	|
+|    UNET   	|    All   	|     66.81     	|               	|
+|   VGG11   	| Original 	|               	|               	|
+|   VGG11   	|   0 + X  	|               	|               	|
+|   VGG11   	|    All   	|               	|               	|
+| VGG11 + P 	| Original 	|               	|               	|
+| VGG11 + P 	|   0 + X  	|               	|               	|
+| VGG11 + P 	|    All   	|               	|               	|
 
 ## Discussion
 
