@@ -1,0 +1,2593 @@
+No pretraining
+Using cuda as backend
+
+Epoch: 1
+avg train-loss: 52.4221
+avg val-loss: 25.8325
+mIoU-train: 0.0
+mIoU-val: 0.0
+time: 9.630879640579224
+
+
+Epoch: 2
+avg train-loss: 49.9277
+avg val-loss: 24.2506
+mIoU-train: 0.0
+mIoU-val: 0.0
+time: 9.199084758758545
+
+
+Epoch: 3
+avg train-loss: 47.0175
+avg val-loss: 22.0921
+mIoU-train: 0.0040650395676493645
+mIoU-val: 0.019999992102384567
+time: 9.316325664520264
+
+
+Epoch: 4
+avg train-loss: 43.7645
+avg val-loss: 20.5149
+mIoU-train: 0.0409214086830616
+mIoU-val: 0.07900001108646393
+time: 9.12046217918396
+
+
+Epoch: 5
+avg train-loss: 40.8577
+avg val-loss: 19.2074
+mIoU-train: 0.09252031147480011
+mIoU-val: 0.13980010151863098
+time: 9.117027759552002
+
+
+Epoch: 6
+avg train-loss: 38.5154
+avg val-loss: 18.3892
+mIoU-train: 0.14444412291049957
+mIoU-val: 0.1931668221950531
+time: 9.026004314422607
+
+
+Epoch: 7
+avg train-loss: 36.616
+avg val-loss: 17.4524
+mIoU-train: 0.1912887692451477
+mIoU-val: 0.23785722255706787
+time: 9.184668064117432
+
+
+Epoch: 8
+avg train-loss: 35.0944
+avg val-loss: 16.8697
+mIoU-train: 0.23109711706638336
+mIoU-val: 0.27362510561943054
+time: 9.34749722480774
+
+
+Epoch: 9
+avg train-loss: 33.903
+avg val-loss: 16.4352
+mIoU-train: 0.2660636305809021
+mIoU-val: 0.3044447600841522
+time: 9.063613414764404
+
+
+Epoch: 10
+avg train-loss: 32.9274
+avg val-loss: 16.1362
+mIoU-train: 0.2974238097667694
+mIoU-val: 0.3311006426811218
+time: 9.065473794937134
+
+
+Epoch: 11
+avg train-loss: 32.0873
+avg val-loss: 15.791
+mIoU-train: 0.32554465532302856
+mIoU-val: 0.3548191487789154
+time: 9.186248302459717
+
+
+Epoch: 12
+avg train-loss: 31.3561
+avg val-loss: 15.4435
+mIoU-train: 0.35051441192626953
+mIoU-val: 0.3757512867450714
+time: 9.165454864501953
+
+
+Epoch: 13
+avg train-loss: 30.7246
+avg val-loss: 15.2224
+mIoU-train: 0.3724973201751709
+mIoU-val: 0.3937707245349884
+time: 9.12117314338684
+
+
+Epoch: 14
+avg train-loss: 30.181
+avg val-loss: 15.0657
+mIoU-train: 0.3919593393802643
+mIoU-val: 0.40950116515159607
+time: 9.188939571380615
+
+
+Epoch: 15
+avg train-loss: 29.6979
+avg val-loss: 14.8551
+mIoU-train: 0.40906310081481934
+mIoU-val: 0.4231341779232025
+time: 9.250888109207153
+
+
+Epoch: 16
+avg train-loss: 29.281
+avg val-loss: 14.4852
+mIoU-train: 0.4243171513080597
+mIoU-val: 0.4355631470680237
+time: 9.335404396057129
+
+
+Epoch: 17
+avg train-loss: 28.9045
+avg val-loss: 14.5345
+mIoU-train: 0.4377128779888153
+mIoU-val: 0.4465298354625702
+time: 9.588473320007324
+
+
+Epoch: 18
+avg train-loss: 28.525
+avg val-loss: 14.7358
+mIoU-train: 0.45011699199676514
+mIoU-val: 0.45600026845932007
+time: 9.085494756698608
+
+
+Epoch: 19
+avg train-loss: 28.2059
+avg val-loss: 14.702
+mIoU-train: 0.46115827560424805
+mIoU-val: 0.4647368788719177
+time: 9.14292311668396
+
+
+Epoch: 20
+avg train-loss: 27.8926
+avg val-loss: 14.4785
+mIoU-train: 0.4712582230567932
+mIoU-val: 0.47269994020462036
+time: 9.237168550491333
+
+
+Epoch: 21
+avg train-loss: 27.5892
+avg val-loss: 14.1956
+mIoU-train: 0.48048651218414307
+mIoU-val: 0.4800473749637604
+time: 9.273286819458008
+
+
+Epoch: 22
+avg train-loss: 27.2864
+avg val-loss: 13.9033
+mIoU-train: 0.48907288908958435
+mIoU-val: 0.4870447814464569
+time: 9.215365648269653
+
+
+Epoch: 23
+avg train-loss: 27.0071
+avg val-loss: 13.7123
+mIoU-train: 0.49702003598213196
+mIoU-val: 0.49338996410369873
+time: 9.153549909591675
+
+
+Epoch: 24
+avg train-loss: 26.7385
+avg val-loss: 13.7572
+mIoU-train: 0.5044524669647217
+mIoU-val: 0.4992063045501709
+time: 9.122374773025513
+
+
+Epoch: 25
+avg train-loss: 26.4796
+avg val-loss: 13.8106
+mIoU-train: 0.511452853679657
+mIoU-val: 0.5044772624969482
+time: 9.22754955291748
+
+
+Epoch: 26
+avg train-loss: 26.2322
+avg val-loss: 13.8609
+mIoU-train: 0.5179979801177979
+mIoU-val: 0.5093043446540833
+time: 9.402767896652222
+
+
+Epoch: 27
+avg train-loss: 25.996
+avg val-loss: 13.7516
+mIoU-train: 0.5242089033126831
+mIoU-val: 0.5139589905738831
+time: 9.230197668075562
+
+
+Epoch: 28
+avg train-loss: 25.7634
+avg val-loss: 13.6704
+mIoU-train: 0.5299953818321228
+mIoU-val: 0.5182097554206848
+time: 9.336273431777954
+
+
+Epoch: 29
+avg train-loss: 25.5491
+avg val-loss: 13.6156
+mIoU-train: 0.5355417132377625
+mIoU-val: 0.5221673846244812
+time: 9.261763572692871
+
+
+Epoch: 30
+avg train-loss: 25.3538
+avg val-loss: 13.4718
+mIoU-train: 0.5406730771064758
+mIoU-val: 0.5260944962501526
+time: 9.260638236999512
+
+
+Epoch: 31
+avg train-loss: 25.1523
+avg val-loss: 13.143
+mIoU-train: 0.5455955266952515
+mIoU-val: 0.5297361016273499
+time: 9.281131505966187
+
+
+Epoch: 32
+avg train-loss: 24.9635
+avg val-loss: 13.0027
+mIoU-train: 0.5502527952194214
+mIoU-val: 0.5331811904907227
+time: 9.316052198410034
+
+
+Epoch: 33
+avg train-loss: 24.7726
+avg val-loss: 12.9298
+mIoU-train: 0.5547752380371094
+mIoU-val: 0.5365387201309204
+time: 9.249606609344482
+
+
+Epoch: 34
+avg train-loss: 24.5712
+avg val-loss: 13.0093
+mIoU-train: 0.55914306640625
+mIoU-val: 0.5395516753196716
+time: 9.150843381881714
+
+
+Epoch: 35
+avg train-loss: 24.3846
+avg val-loss: 12.9556
+mIoU-train: 0.5633543133735657
+mIoU-val: 0.5424211621284485
+time: 9.115087270736694
+
+
+Epoch: 36
+avg train-loss: 24.2143
+avg val-loss: 12.7864
+mIoU-train: 0.5673618316650391
+mIoU-val: 0.5454089045524597
+time: 9.466653108596802
+
+
+Epoch: 37
+avg train-loss: 24.0284
+avg val-loss: 12.5353
+mIoU-train: 0.5712329745292664
+mIoU-val: 0.5480459928512573
+time: 9.28026294708252
+
+
+Epoch: 38
+avg train-loss: 23.8617
+avg val-loss: 12.2421
+mIoU-train: 0.5749146342277527
+mIoU-val: 0.5507292747497559
+time: 9.25172734260559
+
+
+Epoch: 39
+avg train-loss: 23.6925
+avg val-loss: 12.3315
+mIoU-train: 0.5784897208213806
+mIoU-val: 0.5533520579338074
+time: 9.233161449432373
+
+
+Epoch: 40
+avg train-loss: 23.5388
+avg val-loss: 12.5329
+mIoU-train: 0.5818921327590942
+mIoU-val: 0.5557687878608704
+time: 9.279810428619385
+
+Using cuda as backend
+Model name: vgg_p_40_00_none
+Test loss: 13.815522489423874, Test IoU: 0.612930953502655
+Using cuda as backend
+
+Epoch: 1
+avg train-loss: 52.9584
+avg val-loss: 24.5387
+mIoU-train: 0.003116531064733863
+mIoU-val: 0.03599998727440834
+time: 15.18468689918518
+
+
+Epoch: 2
+avg train-loss: 47.7427
+avg val-loss: 21.8629
+mIoU-train: 0.07676152884960175
+mIoU-val: 0.16649994254112244
+time: 14.903685808181763
+
+
+Epoch: 3
+avg train-loss: 42.5323
+avg val-loss: 19.5467
+mIoU-train: 0.163504496216774
+mIoU-val: 0.2453334629535675
+time: 14.8914475440979
+
+
+Epoch: 4
+avg train-loss: 38.8122
+avg val-loss: 17.8953
+mIoU-train: 0.22794662415981293
+mIoU-val: 0.30500009655952454
+time: 15.126736879348755
+
+
+Epoch: 5
+avg train-loss: 35.9692
+avg val-loss: 16.7311
+mIoU-train: 0.2887520492076874
+mIoU-val: 0.3580003082752228
+time: 15.085493803024292
+
+
+Epoch: 6
+avg train-loss: 33.8035
+avg val-loss: 15.9767
+mIoU-train: 0.3389523923397064
+mIoU-val: 0.39733389019966125
+time: 15.018915176391602
+
+
+Epoch: 7
+avg train-loss: 32.2363
+avg val-loss: 15.4894
+mIoU-train: 0.378758043050766
+mIoU-val: 0.42685824632644653
+time: 15.015610694885254
+
+
+Epoch: 8
+avg train-loss: 31.115
+avg val-loss: 15.2236
+mIoU-train: 0.41083475947380066
+mIoU-val: 0.4501267671585083
+time: 15.259889125823975
+
+
+Epoch: 9
+avg train-loss: 30.2405
+avg val-loss: 14.859
+mIoU-train: 0.43701860308647156
+mIoU-val: 0.4680022597312927
+time: 15.049768924713135
+
+
+Epoch: 10
+avg train-loss: 29.5177
+avg val-loss: 14.4969
+mIoU-train: 0.4589815139770508
+mIoU-val: 0.4843027591705322
+time: 14.91766357421875
+
+
+Epoch: 11
+avg train-loss: 28.8819
+avg val-loss: 14.4919
+mIoU-train: 0.4776042699813843
+mIoU-val: 0.4980025589466095
+time: 14.817205429077148
+
+
+Epoch: 12
+avg train-loss: 28.3285
+avg val-loss: 14.258
+mIoU-train: 0.493826687335968
+mIoU-val: 0.509835422039032
+time: 15.25519847869873
+
+
+Epoch: 13
+avg train-loss: 27.8029
+avg val-loss: 13.8065
+mIoU-train: 0.508306086063385
+mIoU-val: 0.5198479294776917
+time: 15.08403992652893
+
+
+Epoch: 14
+avg train-loss: 27.3122
+avg val-loss: 13.6935
+mIoU-train: 0.5214225649833679
+mIoU-val: 0.5286443829536438
+time: 15.124013185501099
+
+
+Epoch: 15
+avg train-loss: 26.8637
+avg val-loss: 13.6327
+mIoU-train: 0.5333136320114136
+mIoU-val: 0.5369346737861633
+time: 14.96695590019226
+
+
+Epoch: 16
+avg train-loss: 26.454
+avg val-loss: 13.5793
+mIoU-train: 0.5440648198127747
+mIoU-val: 0.5442511439323425
+time: 14.997519493103027
+
+
+Epoch: 17
+avg train-loss: 26.0965
+avg val-loss: 13.5861
+mIoU-train: 0.5537582039833069
+mIoU-val: 0.5511184930801392
+time: 15.08642864227295
+
+
+Epoch: 18
+avg train-loss: 25.7699
+avg val-loss: 13.1833
+mIoU-train: 0.5624046325683594
+mIoU-val: 0.5577228665351868
+time: 15.163310050964355
+
+
+Epoch: 19
+avg train-loss: 25.3374
+avg val-loss: 12.8365
+mIoU-train: 0.5705825090408325
+mIoU-val: 0.5635790228843689
+time: 15.285314321517944
+
+
+Epoch: 20
+avg train-loss: 24.9245
+avg val-loss: 12.6659
+mIoU-train: 0.5781643986701965
+mIoU-val: 0.5691996812820435
+time: 15.273110151290894
+
+
+Epoch: 21
+avg train-loss: 24.5482
+avg val-loss: 12.5563
+mIoU-train: 0.5852624773979187
+mIoU-val: 0.5743325352668762
+time: 15.103154182434082
+
+
+Epoch: 22
+avg train-loss: 24.1887
+avg val-loss: 12.443
+mIoU-train: 0.5919429063796997
+mIoU-val: 0.5791807174682617
+time: 15.20385456085205
+
+
+Epoch: 23
+avg train-loss: 23.8418
+avg val-loss: 12.3172
+mIoU-train: 0.5982484817504883
+mIoU-val: 0.5834334492683411
+time: 15.285629987716675
+
+
+Epoch: 24
+avg train-loss: 23.5121
+avg val-loss: 12.19
+mIoU-train: 0.6041356325149536
+mIoU-val: 0.5874983072280884
+time: 15.507912635803223
+
+
+Epoch: 25
+avg train-loss: 23.1982
+avg val-loss: 12.1779
+mIoU-train: 0.6097034215927124
+mIoU-val: 0.5911979675292969
+time: 15.130529165267944
+
+
+Epoch: 26
+avg train-loss: 22.9038
+avg val-loss: 12.1821
+mIoU-train: 0.6149264574050903
+mIoU-val: 0.5945746898651123
+time: 15.24110221862793
+
+
+Epoch: 27
+avg train-loss: 22.6196
+avg val-loss: 12.1174
+mIoU-train: 0.6199029088020325
+mIoU-val: 0.5981827974319458
+time: 15.202231884002686
+
+
+Epoch: 28
+avg train-loss: 22.3349
+avg val-loss: 11.74
+mIoU-train: 0.6246739029884338
+mIoU-val: 0.6016760468482971
+time: 15.10540223121643
+
+
+Epoch: 29
+avg train-loss: 22.0171
+avg val-loss: 11.3654
+mIoU-train: 0.629260241985321
+mIoU-val: 0.6052044034004211
+time: 15.186579465866089
+
+
+Epoch: 30
+avg train-loss: 21.7207
+avg val-loss: 11.3488
+mIoU-train: 0.63371741771698
+mIoU-val: 0.6082974672317505
+time: 15.235543012619019
+
+
+Epoch: 31
+avg train-loss: 21.4465
+avg val-loss: 11.5009
+mIoU-train: 0.6380226612091064
+mIoU-val: 0.6111908555030823
+time: 15.127375364303589
+
+
+Epoch: 32
+avg train-loss: 21.184
+avg val-loss: 11.4323
+mIoU-train: 0.6420974135398865
+mIoU-val: 0.6137158870697021
+time: 15.217379808425903
+
+
+Epoch: 33
+avg train-loss: 20.9206
+avg val-loss: 11.2753
+mIoU-train: 0.6460360288619995
+mIoU-val: 0.6162091493606567
+time: 15.211255311965942
+
+
+Epoch: 34
+avg train-loss: 20.6857
+avg val-loss: 11.0926
+mIoU-train: 0.6498029828071594
+mIoU-val: 0.6186444759368896
+time: 15.30601453781128
+
+
+Epoch: 35
+avg train-loss: 20.4332
+avg val-loss: 10.9396
+mIoU-train: 0.6534382700920105
+mIoU-val: 0.620940625667572
+time: 15.347155094146729
+
+
+Epoch: 36
+avg train-loss: 20.172
+avg val-loss: 10.8936
+mIoU-train: 0.6569598913192749
+mIoU-val: 0.6232479810714722
+time: 15.335618257522583
+
+
+Epoch: 37
+avg train-loss: 19.9157
+avg val-loss: 10.9136
+mIoU-train: 0.660283625125885
+mIoU-val: 0.6253495812416077
+time: 15.040406942367554
+
+
+Epoch: 38
+avg train-loss: 19.6874
+avg val-loss: 10.7528
+mIoU-train: 0.6634752750396729
+mIoU-val: 0.6273669004440308
+time: 15.244210243225098
+
+
+Epoch: 39
+avg train-loss: 19.4541
+avg val-loss: 10.6339
+mIoU-train: 0.6665869355201721
+mIoU-val: 0.6294859647750854
+time: 15.160493850708008
+
+
+Epoch: 40
+avg train-loss: 19.2353
+avg val-loss: 10.5823
+mIoU-train: 0.6695667505264282
+mIoU-val: 0.6314241886138916
+time: 15.468044996261597
+
+Using cuda as backend
+Model name: vgg_p_40_00_01
+Test loss: 11.851913695699169, Test IoU: 0.6422412395477295
+Using cuda as backend
+
+Epoch: 1
+avg train-loss: 46.934
+avg val-loss: 23.7751
+mIoU-train: 0.024932272732257843
+mIoU-val: 0.11099999397993088
+time: 15.208376169204712
+
+
+Epoch: 2
+avg train-loss: 41.5197
+avg val-loss: 19.9463
+mIoU-train: 0.09959352761507034
+mIoU-val: 0.23249995708465576
+time: 15.24373173713684
+
+
+Epoch: 3
+avg train-loss: 36.6647
+avg val-loss: 18.011
+mIoU-train: 0.16973774135112762
+mIoU-val: 0.3136667013168335
+time: 15.340723276138306
+
+
+Epoch: 4
+avg train-loss: 33.4306
+avg val-loss: 16.7661
+mIoU-train: 0.2283872663974762
+mIoU-val: 0.3742499053478241
+time: 15.195242166519165
+
+
+Epoch: 5
+avg train-loss: 31.2409
+avg val-loss: 16.0321
+mIoU-train: 0.2760699689388275
+mIoU-val: 0.4170001745223999
+time: 15.2930326461792
+
+
+Epoch: 6
+avg train-loss: 29.6901
+avg val-loss: 15.4686
+mIoU-train: 0.3136161267757416
+mIoU-val: 0.4483337998390198
+time: 15.092891454696655
+
+
+Epoch: 7
+avg train-loss: 28.48
+avg val-loss: 15.2216
+mIoU-train: 0.3430672287940979
+mIoU-val: 0.4721439778804779
+time: 15.234544277191162
+
+
+Epoch: 8
+avg train-loss: 27.5287
+avg val-loss: 14.7508
+mIoU-train: 0.36612170934677124
+mIoU-val: 0.4906265437602997
+time: 15.387356996536255
+
+
+Epoch: 9
+avg train-loss: 26.7296
+avg val-loss: 14.5407
+mIoU-train: 0.38468626141548157
+mIoU-val: 0.5055574774742126
+time: 15.312875032424927
+
+
+Epoch: 10
+avg train-loss: 26.049
+avg val-loss: 14.2589
+mIoU-train: 0.40003931522369385
+mIoU-val: 0.517902135848999
+time: 15.416114568710327
+
+
+Epoch: 11
+avg train-loss: 25.45
+avg val-loss: 13.7634
+mIoU-train: 0.4128965735435486
+mIoU-val: 0.527819812297821
+time: 15.29720401763916
+
+
+Epoch: 12
+avg train-loss: 24.9044
+avg val-loss: 13.5244
+mIoU-train: 0.4238819479942322
+mIoU-val: 0.5363346338272095
+time: 15.256859064102173
+
+
+Epoch: 13
+avg train-loss: 24.3865
+avg val-loss: 13.2785
+mIoU-train: 0.4334900677204132
+mIoU-val: 0.5438470840454102
+time: 14.968585968017578
+
+
+Epoch: 14
+avg train-loss: 23.9163
+avg val-loss: 13.1867
+mIoU-train: 0.4420374929904938
+mIoU-val: 0.5501435399055481
+time: 15.097928524017334
+
+
+Epoch: 15
+avg train-loss: 23.4817
+avg val-loss: 12.96
+mIoU-train: 0.4496709108352661
+mIoU-val: 0.5556671023368835
+time: 15.206524848937988
+
+
+Epoch: 16
+avg train-loss: 23.0604
+avg val-loss: 12.7554
+mIoU-train: 0.4566805064678192
+mIoU-val: 0.5611252188682556
+time: 15.122356653213501
+
+
+Epoch: 17
+avg train-loss: 22.6676
+avg val-loss: 12.8646
+mIoU-train: 0.4632081091403961
+mIoU-val: 0.5659999251365662
+time: 15.236470937728882
+
+
+Epoch: 18
+avg train-loss: 22.3038
+avg val-loss: 12.5066
+mIoU-train: 0.4691909849643707
+mIoU-val: 0.5706108212471008
+time: 15.392872095108032
+
+
+Epoch: 19
+avg train-loss: 21.9363
+avg val-loss: 12.4419
+mIoU-train: 0.47485819458961487
+mIoU-val: 0.5749988555908203
+time: 15.234669923782349
+
+
+Epoch: 20
+avg train-loss: 21.5872
+avg val-loss: 12.2251
+mIoU-train: 0.4803040027618408
+mIoU-val: 0.5792482495307922
+time: 15.102136135101318
+
+
+Epoch: 21
+avg train-loss: 21.269
+avg val-loss: 12.2144
+mIoU-train: 0.4855022132396698
+mIoU-val: 0.5834261178970337
+time: 14.9151771068573
+
+
+Epoch: 22
+avg train-loss: 20.9766
+avg val-loss: 11.9992
+mIoU-train: 0.4904496371746063
+mIoU-val: 0.5873152017593384
+time: 15.247836828231812
+
+
+Epoch: 23
+avg train-loss: 20.6999
+avg val-loss: 11.8743
+mIoU-train: 0.4953422546386719
+mIoU-val: 0.5907791256904602
+time: 15.164188146591187
+
+
+Epoch: 24
+avg train-loss: 20.421
+avg val-loss: 11.5564
+mIoU-train: 0.5001079440116882
+mIoU-val: 0.5938710570335388
+time: 15.124901533126831
+
+
+Epoch: 25
+avg train-loss: 20.1294
+avg val-loss: 11.4363
+mIoU-train: 0.504650354385376
+mIoU-val: 0.5972355604171753
+time: 15.064899921417236
+
+
+Epoch: 26
+avg train-loss: 19.8139
+avg val-loss: 11.2651
+mIoU-train: 0.5089424252510071
+mIoU-val: 0.600418210029602
+time: 15.20301628112793
+
+
+Epoch: 27
+avg train-loss: 19.4787
+avg val-loss: 10.9996
+mIoU-train: 0.5131521224975586
+mIoU-val: 0.6037356853485107
+time: 14.974186897277832
+
+
+Epoch: 28
+avg train-loss: 19.1535
+avg val-loss: 10.8321
+mIoU-train: 0.5172932744026184
+mIoU-val: 0.6068161129951477
+time: 14.945260763168335
+
+
+Epoch: 29
+avg train-loss: 18.8648
+avg val-loss: 10.9162
+mIoU-train: 0.521233081817627
+mIoU-val: 0.6097186803817749
+time: 14.991305589675903
+
+
+Epoch: 30
+avg train-loss: 18.5893
+avg val-loss: 11.0232
+mIoU-train: 0.5249193906784058
+mIoU-val: 0.6124277114868164
+time: 15.262585878372192
+
+
+Epoch: 31
+avg train-loss: 18.3135
+avg val-loss: 10.91
+mIoU-train: 0.528551459312439
+mIoU-val: 0.6149619817733765
+time: 15.047324180603027
+
+
+Epoch: 32
+avg train-loss: 18.0512
+avg val-loss: 10.7257
+mIoU-train: 0.5320284366607666
+mIoU-val: 0.6172752976417542
+time: 15.261243104934692
+
+
+Epoch: 33
+avg train-loss: 17.798
+avg val-loss: 10.6278
+mIoU-train: 0.5354137420654297
+mIoU-val: 0.6194788217544556
+time: 15.278894901275635
+
+
+Epoch: 34
+avg train-loss: 17.5581
+avg val-loss: 10.4844
+mIoU-train: 0.5386598110198975
+mIoU-val: 0.621641218662262
+time: 15.278207778930664
+
+
+Epoch: 35
+avg train-loss: 17.3291
+avg val-loss: 10.3016
+mIoU-train: 0.5417361259460449
+mIoU-val: 0.6237085461616516
+time: 14.997597217559814
+
+
+Epoch: 36
+avg train-loss: 17.0808
+avg val-loss: 10.2053
+mIoU-train: 0.5447467565536499
+mIoU-val: 0.6255223155021667
+time: 15.297674179077148
+
+
+Epoch: 37
+avg train-loss: 16.8333
+avg val-loss: 10.1621
+mIoU-train: 0.5476605892181396
+mIoU-val: 0.6270759105682373
+time: 15.326110601425171
+
+
+Epoch: 38
+avg train-loss: 16.6027
+avg val-loss: 10.1209
+mIoU-train: 0.5504853129386902
+mIoU-val: 0.628547728061676
+time: 15.36567997932434
+
+
+Epoch: 39
+avg train-loss: 16.4096
+avg val-loss: 9.9524
+mIoU-train: 0.5531339645385742
+mIoU-val: 0.6300978660583496
+time: 15.302379846572876
+
+
+Epoch: 40
+avg train-loss: 16.2321
+avg val-loss: 9.9705
+mIoU-train: 0.555687427520752
+mIoU-val: 0.6315205693244934
+time: 15.336327314376831
+
+Using cuda as backend
+Model name: vgg_p_40_00_02
+Test loss: 11.46600990630403, Test IoU: 0.6124998927116394
+Using cuda as backend
+
+Epoch: 1
+avg train-loss: 51.9085
+avg val-loss: 24.0595
+mIoU-train: 0.01951221190392971
+mIoU-val: 0.07999995350837708
+time: 15.47744369506836
+
+
+Epoch: 2
+avg train-loss: 45.4656
+avg val-loss: 19.406
+mIoU-train: 0.0894307941198349
+mIoU-val: 0.18299996852874756
+time: 14.901846170425415
+
+
+Epoch: 3
+avg train-loss: 39.1889
+avg val-loss: 17.3584
+mIoU-train: 0.1729443520307541
+mIoU-val: 0.26166674494743347
+time: 15.093493461608887
+
+
+Epoch: 4
+avg train-loss: 34.8014
+avg val-loss: 15.6695
+mIoU-train: 0.2502025365829468
+mIoU-val: 0.3329998850822449
+time: 14.984466791152954
+
+
+Epoch: 5
+avg train-loss: 31.8509
+avg val-loss: 14.8557
+mIoU-train: 0.31682732701301575
+mIoU-val: 0.3858000636100769
+time: 14.917161226272583
+
+
+Epoch: 6
+avg train-loss: 29.9406
+avg val-loss: 14.2469
+mIoU-train: 0.3675197958946228
+mIoU-val: 0.42333346605300903
+time: 15.028539419174194
+
+
+Epoch: 7
+avg train-loss: 28.5429
+avg val-loss: 13.7041
+mIoU-train: 0.40574270486831665
+mIoU-val: 0.451143741607666
+time: 15.085471153259277
+
+
+Epoch: 8
+avg train-loss: 27.5099
+avg val-loss: 13.6056
+mIoU-train: 0.4351922571659088
+mIoU-val: 0.4725014269351959
+time: 15.048119306564331
+
+
+Epoch: 9
+avg train-loss: 26.6999
+avg val-loss: 13.2235
+mIoU-train: 0.45885029435157776
+mIoU-val: 0.4891130030155182
+time: 15.035487651824951
+
+
+Epoch: 10
+avg train-loss: 26.0083
+avg val-loss: 12.9999
+mIoU-train: 0.47823742032051086
+mIoU-val: 0.5032022595405579
+time: 15.16921091079712
+
+
+Epoch: 11
+avg train-loss: 25.4138
+avg val-loss: 12.7525
+mIoU-train: 0.4945061206817627
+mIoU-val: 0.5148199796676636
+time: 15.251228094100952
+
+
+Epoch: 12
+avg train-loss: 24.8722
+avg val-loss: 12.6489
+mIoU-train: 0.5083160400390625
+mIoU-val: 0.5249180197715759
+time: 14.961799144744873
+
+
+Epoch: 13
+avg train-loss: 24.3859
+avg val-loss: 12.3978
+mIoU-train: 0.5203872323036194
+mIoU-val: 0.5334624648094177
+time: 15.058297157287598
+
+
+Epoch: 14
+avg train-loss: 23.9392
+avg val-loss: 12.0855
+mIoU-train: 0.5310338735580444
+mIoU-val: 0.54085773229599
+time: 15.075112342834473
+
+
+Epoch: 15
+avg train-loss: 23.54
+avg val-loss: 11.9041
+mIoU-train: 0.5404775142669678
+mIoU-val: 0.5470002889633179
+time: 15.161964893341064
+
+
+Epoch: 16
+avg train-loss: 23.1643
+avg val-loss: 11.7338
+mIoU-train: 0.5489944219589233
+mIoU-val: 0.5520000457763672
+time: 14.97725796699524
+
+
+Epoch: 17
+avg train-loss: 22.8168
+avg val-loss: 11.6394
+mIoU-train: 0.5566369891166687
+mIoU-val: 0.5569409132003784
+time: 15.264839172363281
+
+
+Epoch: 18
+avg train-loss: 22.4631
+avg val-loss: 11.6476
+mIoU-train: 0.5638437271118164
+mIoU-val: 0.561999499797821
+time: 15.176576137542725
+
+
+Epoch: 19
+avg train-loss: 22.1007
+avg val-loss: 11.4223
+mIoU-train: 0.5705271363258362
+mIoU-val: 0.5665252208709717
+time: 15.107003450393677
+
+
+Epoch: 20
+avg train-loss: 21.7548
+avg val-loss: 11.2334
+mIoU-train: 0.5769388675689697
+mIoU-val: 0.5705479979515076
+time: 15.160530805587769
+
+
+Epoch: 21
+avg train-loss: 21.4331
+avg val-loss: 11.0922
+mIoU-train: 0.5830356478691101
+mIoU-val: 0.5742351412773132
+time: 15.044385194778442
+
+
+Epoch: 22
+avg train-loss: 21.1241
+avg val-loss: 11.0056
+mIoU-train: 0.5888492465019226
+mIoU-val: 0.5780871510505676
+time: 15.121471405029297
+
+
+Epoch: 23
+avg train-loss: 20.8199
+avg val-loss: 10.863
+mIoU-train: 0.5943694114685059
+mIoU-val: 0.5817347168922424
+time: 15.19975757598877
+
+
+Epoch: 24
+avg train-loss: 20.5348
+avg val-loss: 10.8093
+mIoU-train: 0.5996779799461365
+mIoU-val: 0.5853700637817383
+time: 15.045852661132812
+
+
+Epoch: 25
+avg train-loss: 20.2568
+avg val-loss: 10.6255
+mIoU-train: 0.6049254536628723
+mIoU-val: 0.5887545943260193
+time: 15.063831090927124
+
+
+Epoch: 26
+avg train-loss: 19.9767
+avg val-loss: 10.6092
+mIoU-train: 0.6099883317947388
+mIoU-val: 0.5918017625808716
+time: 15.372712850570679
+
+
+Epoch: 27
+avg train-loss: 19.7019
+avg val-loss: 10.381
+mIoU-train: 0.6148772835731506
+mIoU-val: 0.594956636428833
+time: 15.267450332641602
+
+
+Epoch: 28
+avg train-loss: 19.4044
+avg val-loss: 10.3091
+mIoU-train: 0.6196641325950623
+mIoU-val: 0.5982791781425476
+time: 15.269535541534424
+
+
+Epoch: 29
+avg train-loss: 19.107
+avg val-loss: 10.2935
+mIoU-train: 0.6242051720619202
+mIoU-val: 0.6012345552444458
+time: 15.099668264389038
+
+
+Epoch: 30
+avg train-loss: 18.8134
+avg val-loss: 10.2511
+mIoU-train: 0.6286603808403015
+mIoU-val: 0.6040262579917908
+time: 15.355283975601196
+
+
+Epoch: 31
+avg train-loss: 18.5251
+avg val-loss: 10.0179
+mIoU-train: 0.6329855918884277
+mIoU-val: 0.6068314909934998
+time: 15.119309425354004
+
+
+Epoch: 32
+avg train-loss: 18.2447
+avg val-loss: 9.9108
+mIoU-train: 0.637214183807373
+mIoU-val: 0.6095864176750183
+time: 15.29069995880127
+
+
+Epoch: 33
+avg train-loss: 17.9802
+avg val-loss: 9.7944
+mIoU-train: 0.6412645578384399
+mIoU-val: 0.6121744513511658
+time: 15.117152452468872
+
+
+Epoch: 34
+avg train-loss: 17.7115
+avg val-loss: 9.7007
+mIoU-train: 0.6452440619468689
+mIoU-val: 0.614610493183136
+time: 15.241467714309692
+
+
+Epoch: 35
+avg train-loss: 17.4495
+avg val-loss: 9.5958
+mIoU-train: 0.6490780115127563
+mIoU-val: 0.6169072985649109
+time: 15.295124053955078
+
+
+Epoch: 36
+avg train-loss: 17.1902
+avg val-loss: 9.4951
+mIoU-train: 0.6529011726379395
+mIoU-val: 0.619104266166687
+time: 15.271562337875366
+
+
+Epoch: 37
+avg train-loss: 16.9384
+avg val-loss: 9.4631
+mIoU-train: 0.6566274166107178
+mIoU-val: 0.6211554408073425
+time: 15.12350583076477
+
+
+Epoch: 38
+avg train-loss: 16.701
+avg val-loss: 9.393
+mIoU-train: 0.6602721810340881
+mIoU-val: 0.623124897480011
+time: 15.163120746612549
+
+
+Epoch: 39
+avg train-loss: 16.4708
+avg val-loss: 9.3047
+mIoU-train: 0.663925290107727
+mIoU-val: 0.6250702738761902
+time: 15.137580394744873
+
+
+Epoch: 40
+avg train-loss: 16.2422
+avg val-loss: 9.2313
+mIoU-train: 0.6675659418106079
+mIoU-val: 0.6267685890197754
+time: 15.242395401000977
+
+Using cuda as backend
+Model name: vgg_p_40_00_03
+Test loss: 10.69766398991967, Test IoU: 0.6297412514686584
+Using cuda as backend
+
+Epoch: 1
+avg train-loss: 50.5185
+avg val-loss: 23.3708
+mIoU-train: 0.0
+mIoU-val: 0.0020000000949949026
+time: 15.450428009033203
+
+
+Epoch: 2
+avg train-loss: 43.8299
+avg val-loss: 19.0629
+mIoU-train: 0.05000000819563866
+mIoU-val: 0.11450004577636719
+time: 15.143718004226685
+
+
+Epoch: 3
+avg train-loss: 38.1252
+avg val-loss: 16.9332
+mIoU-train: 0.14268268644809723
+mIoU-val: 0.2213333398103714
+time: 14.908170461654663
+
+
+Epoch: 4
+avg train-loss: 33.9257
+avg val-loss: 15.4265
+mIoU-train: 0.2325877994298935
+mIoU-val: 0.3059997260570526
+time: 14.99840760231018
+
+
+Epoch: 5
+avg train-loss: 31.2413
+avg val-loss: 14.6435
+mIoU-train: 0.30381953716278076
+mIoU-val: 0.36719995737075806
+time: 15.225114822387695
+
+
+Epoch: 6
+avg train-loss: 29.4647
+avg val-loss: 14.1003
+mIoU-train: 0.3574250638484955
+mIoU-val: 0.4108335077762604
+time: 15.170874834060669
+
+
+Epoch: 7
+avg train-loss: 28.1873
+avg val-loss: 13.6991
+mIoU-train: 0.3978826105594635
+mIoU-val: 0.4424293637275696
+time: 15.149473905563354
+
+
+Epoch: 8
+avg train-loss: 27.1735
+avg val-loss: 13.2723
+mIoU-train: 0.4296013414859772
+mIoU-val: 0.4670013189315796
+time: 15.18620228767395
+
+
+Epoch: 9
+avg train-loss: 26.3432
+avg val-loss: 12.9298
+mIoU-train: 0.45558127760887146
+mIoU-val: 0.4870017170906067
+time: 15.28163456916809
+
+
+Epoch: 10
+avg train-loss: 25.6396
+avg val-loss: 12.7079
+mIoU-train: 0.47746261954307556
+mIoU-val: 0.5037020444869995
+time: 15.017618894577026
+
+
+Epoch: 11
+avg train-loss: 25.0077
+avg val-loss: 12.4609
+mIoU-train: 0.49612942337989807
+mIoU-val: 0.5179105401039124
+time: 15.290077447891235
+
+
+Epoch: 12
+avg train-loss: 24.4277
+avg val-loss: 12.2523
+mIoU-train: 0.5122654438018799
+mIoU-val: 0.5295009016990662
+time: 15.080662250518799
+
+
+Epoch: 13
+avg train-loss: 23.9098
+avg val-loss: 12.1113
+mIoU-train: 0.526335597038269
+mIoU-val: 0.5399234890937805
+time: 15.132097721099854
+
+
+Epoch: 14
+avg train-loss: 23.4625
+avg val-loss: 12.0262
+mIoU-train: 0.5389857292175293
+mIoU-val: 0.5487858057022095
+time: 15.021884679794312
+
+
+Epoch: 15
+avg train-loss: 23.0731
+avg val-loss: 11.8382
+mIoU-train: 0.5500298738479614
+mIoU-val: 0.5561997890472412
+time: 14.97991132736206
+
+
+Epoch: 16
+avg train-loss: 22.711
+avg val-loss: 11.5768
+mIoU-train: 0.5598882436752319
+mIoU-val: 0.5629994869232178
+time: 15.143729209899902
+
+
+Epoch: 17
+avg train-loss: 22.3285
+avg val-loss: 11.5621
+mIoU-train: 0.5688017010688782
+mIoU-val: 0.5691757798194885
+time: 15.283050298690796
+
+
+Epoch: 18
+avg train-loss: 21.9729
+avg val-loss: 11.4453
+mIoU-train: 0.5770331025123596
+mIoU-val: 0.574665904045105
+time: 15.32447862625122
+
+
+Epoch: 19
+avg train-loss: 21.639
+avg val-loss: 11.2349
+mIoU-train: 0.5846042633056641
+mIoU-val: 0.5798400640487671
+time: 15.410801410675049
+
+
+Epoch: 20
+avg train-loss: 21.3242
+avg val-loss: 11.0944
+mIoU-train: 0.5915446281433105
+mIoU-val: 0.5844470262527466
+time: 15.07846999168396
+
+
+Epoch: 21
+avg train-loss: 21.0202
+avg val-loss: 11.0128
+mIoU-train: 0.5979794263839722
+mIoU-val: 0.5889009833335876
+time: 15.288177728652954
+
+
+Epoch: 22
+avg train-loss: 20.7255
+avg val-loss: 10.887
+mIoU-train: 0.6039709448814392
+mIoU-val: 0.5931774973869324
+time: 15.40993618965149
+
+
+Epoch: 23
+avg train-loss: 20.442
+avg val-loss: 10.747
+mIoU-train: 0.6094945669174194
+mIoU-val: 0.5970386862754822
+time: 15.307079315185547
+
+
+Epoch: 24
+avg train-loss: 20.1635
+avg val-loss: 10.6852
+mIoU-train: 0.6145465970039368
+mIoU-val: 0.6004114151000977
+time: 15.174859523773193
+
+
+Epoch: 25
+avg train-loss: 19.8889
+avg val-loss: 10.7838
+mIoU-train: 0.619199812412262
+mIoU-val: 0.6034342050552368
+time: 14.794695377349854
+
+
+Epoch: 26
+avg train-loss: 19.6119
+avg val-loss: 10.5895
+mIoU-train: 0.6235471367835999
+mIoU-val: 0.6060707569122314
+time: 15.211280822753906
+
+
+Epoch: 27
+avg train-loss: 19.324
+avg val-loss: 10.2983
+mIoU-train: 0.6276630163192749
+mIoU-val: 0.6089194416999817
+time: 15.191814661026001
+
+
+Epoch: 28
+avg train-loss: 19.0138
+avg val-loss: 10.1366
+mIoU-train: 0.631528377532959
+mIoU-val: 0.6114574670791626
+time: 15.360463619232178
+
+
+Epoch: 29
+avg train-loss: 18.7216
+avg val-loss: 10.0272
+mIoU-train: 0.63523930311203
+mIoU-val: 0.6138895153999329
+time: 15.220750570297241
+
+
+Epoch: 30
+avg train-loss: 18.4412
+avg val-loss: 9.9132
+mIoU-train: 0.6387479901313782
+mIoU-val: 0.6161926984786987
+time: 15.148347616195679
+
+
+Epoch: 31
+avg train-loss: 18.1741
+avg val-loss: 9.8229
+mIoU-train: 0.6420478224754333
+mIoU-val: 0.6183796525001526
+time: 15.088288068771362
+
+
+Epoch: 32
+avg train-loss: 17.9158
+avg val-loss: 9.7452
+mIoU-train: 0.6452344655990601
+mIoU-val: 0.6204610466957092
+time: 15.212163209915161
+
+
+Epoch: 33
+avg train-loss: 17.6667
+avg val-loss: 9.6506
+mIoU-train: 0.6482446193695068
+mIoU-val: 0.6224467158317566
+time: 15.02399468421936
+
+
+Epoch: 34
+avg train-loss: 17.4324
+avg val-loss: 9.5375
+mIoU-train: 0.6511334776878357
+mIoU-val: 0.6244041323661804
+time: 15.017575740814209
+
+
+Epoch: 35
+avg train-loss: 17.2014
+avg val-loss: 9.4873
+mIoU-train: 0.6538633108139038
+mIoU-val: 0.6260499358177185
+time: 15.138272285461426
+
+
+Epoch: 36
+avg train-loss: 16.9711
+avg val-loss: 9.3796
+mIoU-train: 0.6564794182777405
+mIoU-val: 0.6274932622909546
+time: 15.19708251953125
+
+
+Epoch: 37
+avg train-loss: 16.7468
+avg val-loss: 9.2533
+mIoU-train: 0.6589983701705933
+mIoU-val: 0.6289124488830566
+time: 15.294676065444946
+
+
+Epoch: 38
+avg train-loss: 16.5191
+avg val-loss: 9.1561
+mIoU-train: 0.6614343523979187
+mIoU-val: 0.6305199265480042
+time: 15.15693974494934
+
+
+Epoch: 39
+avg train-loss: 16.3016
+avg val-loss: 9.1138
+mIoU-train: 0.6637909412384033
+mIoU-val: 0.6319937109947205
+time: 15.451614618301392
+
+
+Epoch: 40
+avg train-loss: 16.0787
+avg val-loss: 9.0231
+mIoU-train: 0.6661077737808228
+mIoU-val: 0.6332940459251404
+time: 15.165026187896729
+
+Using cuda as backend
+Model name: vgg_p_40_00_04
+Test loss: 10.217063085270324, Test IoU: 0.6353446841239929
+Using cuda as backend
+
+Epoch: 1
+avg train-loss: 52.5392
+avg val-loss: 24.2815
+mIoU-train: 0.0
+mIoU-val: 0.0
+time: 15.48787784576416
+
+
+Epoch: 2
+avg train-loss: 46.8672
+avg val-loss: 21.1544
+mIoU-train: 0.019308971241116524
+mIoU-val: 0.0845000222325325
+time: 15.071847677230835
+
+
+Epoch: 3
+avg train-loss: 41.1974
+avg val-loss: 18.5316
+mIoU-train: 0.11418239027261734
+mIoU-val: 0.19300004839897156
+time: 15.265092611312866
+
+
+Epoch: 4
+avg train-loss: 36.9904
+avg val-loss: 17.1778
+mIoU-train: 0.199897900223732
+mIoU-val: 0.2724999487400055
+time: 15.330219507217407
+
+
+Epoch: 5
+avg train-loss: 34.1618
+avg val-loss: 16.1289
+mIoU-train: 0.268453985452652
+mIoU-val: 0.3322000205516815
+time: 15.127863883972168
+
+
+Epoch: 6
+avg train-loss: 32.1142
+avg val-loss: 15.5301
+mIoU-train: 0.3236859440803528
+mIoU-val: 0.3781668245792389
+time: 15.345142841339111
+
+
+Epoch: 7
+avg train-loss: 30.5659
+avg val-loss: 14.9367
+mIoU-train: 0.36799532175064087
+mIoU-val: 0.41357195377349854
+time: 15.343043565750122
+
+
+Epoch: 8
+avg train-loss: 29.4193
+avg val-loss: 14.5715
+mIoU-train: 0.40283897519111633
+mIoU-val: 0.4407510757446289
+time: 15.14075255393982
+
+
+Epoch: 9
+avg train-loss: 28.5176
+avg val-loss: 14.2599
+mIoU-train: 0.4310396909713745
+mIoU-val: 0.46222376823425293
+time: 15.281111478805542
+
+
+Epoch: 10
+avg train-loss: 27.7805
+avg val-loss: 13.959
+mIoU-train: 0.4543050229549408
+mIoU-val: 0.47980186343193054
+time: 15.354968786239624
+
+
+Epoch: 11
+avg train-loss: 27.1585
+avg val-loss: 13.7647
+mIoU-train: 0.4738698899745941
+mIoU-val: 0.49445611238479614
+time: 15.476774215698242
+
+
+Epoch: 12
+avg train-loss: 26.5907
+avg val-loss: 13.644
+mIoU-train: 0.4907074570655823
+mIoU-val: 0.5068344473838806
+time: 15.18031358718872
+
+
+Epoch: 13
+avg train-loss: 26.0877
+avg val-loss: 13.3541
+mIoU-train: 0.5055713653564453
+mIoU-val: 0.5176929831504822
+time: 15.159902811050415
+
+
+Epoch: 14
+avg train-loss: 25.6293
+avg val-loss: 13.2738
+mIoU-train: 0.5187660455703735
+mIoU-val: 0.527000367641449
+time: 15.413453102111816
+
+
+Epoch: 15
+avg train-loss: 25.2046
+avg val-loss: 13.0626
+mIoU-train: 0.5304986834526062
+mIoU-val: 0.5356666445732117
+time: 15.475085973739624
+
+
+Epoch: 16
+avg train-loss: 24.8047
+avg val-loss: 12.9173
+mIoU-train: 0.5410861372947693
+mIoU-val: 0.543187141418457
+time: 15.202820062637329
+
+
+Epoch: 17
+avg train-loss: 24.4275
+avg val-loss: 12.8219
+mIoU-train: 0.550682783126831
+mIoU-val: 0.5498816967010498
+time: 15.527033567428589
+
+
+Epoch: 18
+avg train-loss: 24.0706
+avg val-loss: 12.5995
+mIoU-train: 0.559393584728241
+mIoU-val: 0.5560547113418579
+time: 15.425580501556396
+
+
+Epoch: 19
+avg train-loss: 23.7296
+avg val-loss: 12.5833
+mIoU-train: 0.5673795938491821
+mIoU-val: 0.5615251064300537
+time: 15.371201515197754
+
+
+Epoch: 20
+avg train-loss: 23.3925
+avg val-loss: 12.3287
+mIoU-train: 0.5747884511947632
+mIoU-val: 0.5664982199668884
+time: 15.471046209335327
+
+
+Epoch: 21
+avg train-loss: 23.0702
+avg val-loss: 12.2087
+mIoU-train: 0.5815935730934143
+mIoU-val: 0.5709975957870483
+time: 15.39197564125061
+
+
+Epoch: 22
+avg train-loss: 22.76
+avg val-loss: 12.0604
+mIoU-train: 0.587909460067749
+mIoU-val: 0.5752243399620056
+time: 15.252723455429077
+
+
+Epoch: 23
+avg train-loss: 22.4626
+avg val-loss: 11.9002
+mIoU-train: 0.5936996340751648
+mIoU-val: 0.5790835618972778
+time: 15.264190435409546
+
+
+Epoch: 24
+avg train-loss: 22.1767
+avg val-loss: 11.7189
+mIoU-train: 0.5990864634513855
+mIoU-val: 0.5827462673187256
+time: 15.359411239624023
+
+
+Epoch: 25
+avg train-loss: 21.9051
+avg val-loss: 11.7815
+mIoU-train: 0.6040260791778564
+mIoU-val: 0.586115837097168
+time: 15.387900829315186
+
+
+Epoch: 26
+avg train-loss: 21.6186
+avg val-loss: 11.5798
+mIoU-train: 0.608731746673584
+mIoU-val: 0.589303195476532
+time: 15.448623895645142
+
+
+Epoch: 27
+avg train-loss: 21.332
+avg val-loss: 11.4332
+mIoU-train: 0.6133349537849426
+mIoU-val: 0.5923283696174622
+time: 15.212355852127075
+
+
+Epoch: 28
+avg train-loss: 21.0161
+avg val-loss: 11.348
+mIoU-train: 0.6180400252342224
+mIoU-val: 0.5958521962165833
+time: 15.360246896743774
+
+
+Epoch: 29
+avg train-loss: 20.6995
+avg val-loss: 11.2696
+mIoU-train: 0.6227293610572815
+mIoU-val: 0.5993744730949402
+time: 15.336140394210815
+
+
+Epoch: 30
+avg train-loss: 20.3972
+avg val-loss: 11.0898
+mIoU-train: 0.6272687315940857
+mIoU-val: 0.6025286316871643
+time: 15.335262537002563
+
+
+Epoch: 31
+avg train-loss: 20.1069
+avg val-loss: 11.0905
+mIoU-train: 0.631607174873352
+mIoU-val: 0.6054793000221252
+time: 15.374969959259033
+
+
+Epoch: 32
+avg train-loss: 19.8356
+avg val-loss: 10.8739
+mIoU-train: 0.6357295513153076
+mIoU-val: 0.6083391904830933
+time: 15.219691753387451
+
+
+Epoch: 33
+avg train-loss: 19.5697
+avg val-loss: 10.661
+mIoU-train: 0.6396512389183044
+mIoU-val: 0.6111167669296265
+time: 15.350629329681396
+
+
+Epoch: 34
+avg train-loss: 19.3116
+avg val-loss: 10.4008
+mIoU-train: 0.6433824896812439
+mIoU-val: 0.6138192415237427
+time: 15.455039978027344
+
+
+Epoch: 35
+avg train-loss: 19.0523
+avg val-loss: 10.4709
+mIoU-train: 0.6469588875770569
+mIoU-val: 0.6162533164024353
+time: 15.312301635742188
+
+
+Epoch: 36
+avg train-loss: 18.7907
+avg val-loss: 10.3779
+mIoU-train: 0.6504149436950684
+mIoU-val: 0.6186355352401733
+time: 15.278626203536987
+
+
+Epoch: 37
+avg train-loss: 18.5322
+avg val-loss: 10.2759
+mIoU-train: 0.6537573933601379
+mIoU-val: 0.6209699511528015
+time: 15.541675806045532
+
+
+Epoch: 38
+avg train-loss: 18.2803
+avg val-loss: 10.2028
+mIoU-train: 0.6570633053779602
+mIoU-val: 0.6231288313865662
+time: 15.647445917129517
+
+
+Epoch: 39
+avg train-loss: 18.043
+avg val-loss: 10.1301
+mIoU-train: 0.6602659225463867
+mIoU-val: 0.6252025961875916
+time: 15.38223671913147
+
+
+Epoch: 40
+avg train-loss: 17.807
+avg val-loss: 9.9347
+mIoU-train: 0.6634306311607361
+mIoU-val: 0.6272726655006409
+time: 15.194761514663696
+
+Using cuda as backend
+Model name: vgg_p_40_00_05
+Test loss: 11.354957911690047, Test IoU: 0.6612067222595215
+Using cuda as backend
+
+Epoch: 1
+avg train-loss: 47.8333
+avg val-loss: 23.5593
+mIoU-train: 0.006097559351474047
+mIoU-val: 0.03899998962879181
+time: 15.421229600906372
+
+
+Epoch: 2
+avg train-loss: 41.5467
+avg val-loss: 19.3855
+mIoU-train: 0.052032455801963806
+mIoU-val: 0.1260000616312027
+time: 15.053187608718872
+
+
+Epoch: 3
+avg train-loss: 36.4715
+avg val-loss: 17.8708
+mIoU-train: 0.09837387502193451
+mIoU-val: 0.18466666340827942
+time: 15.227509021759033
+
+
+Epoch: 4
+avg train-loss: 33.1953
+avg val-loss: 16.666
+mIoU-train: 0.14840750396251678
+mIoU-val: 0.25025007128715515
+time: 14.846913814544678
+
+
+Epoch: 5
+avg train-loss: 30.9481
+avg val-loss: 15.7222
+mIoU-train: 0.2006230652332306
+mIoU-val: 0.30900004506111145
+time: 15.040374994277954
+
+
+Epoch: 6
+avg train-loss: 29.1964
+avg val-loss: 15.1384
+mIoU-train: 0.24489565193653107
+mIoU-val: 0.3551669418811798
+time: 15.201568126678467
+
+
+Epoch: 7
+avg train-loss: 27.8455
+avg val-loss: 14.4196
+mIoU-train: 0.280215322971344
+mIoU-val: 0.39100053906440735
+time: 15.1656174659729
+
+
+Epoch: 8
+avg train-loss: 26.7281
+avg val-loss: 13.9996
+mIoU-train: 0.30892398953437805
+mIoU-val: 0.41862615942955017
+time: 15.153029441833496
+
+
+Epoch: 9
+avg train-loss: 25.7534
+avg val-loss: 13.6699
+mIoU-train: 0.33260872960090637
+mIoU-val: 0.4404461085796356
+time: 15.156661748886108
+
+
+Epoch: 10
+avg train-loss: 24.9322
+avg val-loss: 13.3547
+mIoU-train: 0.35285836458206177
+mIoU-val: 0.45820215344429016
+time: 15.142504692077637
+
+
+Epoch: 11
+avg train-loss: 24.227
+avg val-loss: 12.8126
+mIoU-train: 0.37079331278800964
+mIoU-val: 0.47427502274513245
+time: 15.12681770324707
+
+
+Epoch: 12
+avg train-loss: 23.5823
+avg val-loss: 12.5131
+mIoU-train: 0.3871280252933502
+mIoU-val: 0.4882519245147705
+time: 15.082599639892578
+
+
+Epoch: 13
+avg train-loss: 23.0182
+avg val-loss: 12.4714
+mIoU-train: 0.40190863609313965
+mIoU-val: 0.5000016689300537
+time: 15.162928104400635
+
+
+Epoch: 14
+avg train-loss: 22.5355
+avg val-loss: 12.3186
+mIoU-train: 0.4152851700782776
+mIoU-val: 0.5096442699432373
+time: 15.039139747619629
+
+
+Epoch: 15
+avg train-loss: 22.0847
+avg val-loss: 12.0545
+mIoU-train: 0.42736712098121643
+mIoU-val: 0.5191346406936646
+time: 15.21589970588684
+
+
+Epoch: 16
+avg train-loss: 21.6731
+avg val-loss: 12.3501
+mIoU-train: 0.4381418228149414
+mIoU-val: 0.5268760323524475
+time: 15.08524751663208
+
+
+Epoch: 17
+avg train-loss: 21.2933
+avg val-loss: 12.0395
+mIoU-train: 0.4478800594806671
+mIoU-val: 0.534412682056427
+time: 15.110864400863647
+
+
+Epoch: 18
+avg train-loss: 20.9103
+avg val-loss: 11.7404
+mIoU-train: 0.45687493681907654
+mIoU-val: 0.5412231087684631
+time: 15.076089143753052
+
+
+Epoch: 19
+avg train-loss: 20.5177
+avg val-loss: 11.6359
+mIoU-train: 0.4651368260383606
+mIoU-val: 0.5478954315185547
+time: 15.45077896118164
+
+
+Epoch: 20
+avg train-loss: 20.1285
+avg val-loss: 11.6863
+mIoU-train: 0.4727143347263336
+mIoU-val: 0.5531996488571167
+time: 15.109984874725342
+
+
+Epoch: 21
+avg train-loss: 19.752
+avg val-loss: 11.5302
+mIoU-train: 0.4798799753189087
+mIoU-val: 0.5582846403121948
+time: 15.151340246200562
+
+
+Epoch: 22
+avg train-loss: 19.4247
+avg val-loss: 11.3142
+mIoU-train: 0.4863941967487335
+mIoU-val: 0.5632255673408508
+time: 15.21834683418274
+
+
+Epoch: 23
+avg train-loss: 19.1186
+avg val-loss: 11.0563
+mIoU-train: 0.4925709068775177
+mIoU-val: 0.5680412650108337
+time: 15.166916370391846
+
+
+Epoch: 24
+avg train-loss: 18.8292
+avg val-loss: 10.7773
+mIoU-train: 0.49830469489097595
+mIoU-val: 0.5724140405654907
+time: 15.160983800888062
+
+
+Epoch: 25
+avg train-loss: 18.5589
+avg val-loss: 10.5867
+mIoU-train: 0.5035690069198608
+mIoU-val: 0.5764769315719604
+time: 15.468255996704102
+
+
+Epoch: 26
+avg train-loss: 18.3249
+avg val-loss: 10.4988
+mIoU-train: 0.5083813667297363
+mIoU-val: 0.580227255821228
+time: 15.348988771438599
+
+
+Epoch: 27
+avg train-loss: 18.0838
+avg val-loss: 10.7974
+mIoU-train: 0.5128527283668518
+mIoU-val: 0.5835146903991699
+time: 15.26332950592041
+
+
+Epoch: 28
+avg train-loss: 17.8837
+avg val-loss: 10.7901
+mIoU-train: 0.5170140266418457
+mIoU-val: 0.5865316987037659
+time: 15.108634233474731
+
+
+Epoch: 29
+avg train-loss: 17.7089
+avg val-loss: 10.3884
+mIoU-train: 0.5209069848060608
+mIoU-val: 0.5897199511528015
+time: 15.230893611907959
+
+
+Epoch: 30
+avg train-loss: 17.4834
+avg val-loss: 10.1824
+mIoU-train: 0.5245447754859924
+mIoU-val: 0.5925954580307007
+time: 15.199778318405151
+
+
+Epoch: 31
+avg train-loss: 17.21
+avg val-loss: 10.2034
+mIoU-train: 0.5279961228370667
+mIoU-val: 0.5950918197631836
+time: 15.225140810012817
+
+
+Epoch: 32
+avg train-loss: 16.9331
+avg val-loss: 10.0729
+mIoU-train: 0.531350314617157
+mIoU-val: 0.5973695516586304
+time: 15.334699869155884
+
+
+Epoch: 33
+avg train-loss: 16.6881
+avg val-loss: 9.9077
+mIoU-train: 0.5345505475997925
+mIoU-val: 0.5999944806098938
+time: 15.254664659500122
+
+
+Epoch: 34
+avg train-loss: 16.4247
+avg val-loss: 9.7752
+mIoU-train: 0.537682056427002
+mIoU-val: 0.602523684501648
+time: 15.10537314414978
+
+
+Epoch: 35
+avg train-loss: 16.1857
+avg val-loss: 9.7115
+mIoU-train: 0.5407353639602661
+mIoU-val: 0.6049658060073853
+time: 15.253912210464478
+
+
+Epoch: 36
+avg train-loss: 15.9761
+avg val-loss: 9.6403
+mIoU-train: 0.5436001420021057
+mIoU-val: 0.6072445511817932
+time: 15.308771133422852
+
+
+Epoch: 37
+avg train-loss: 15.7783
+avg val-loss: 9.6084
+mIoU-train: 0.5463284850120544
+mIoU-val: 0.609373152256012
+time: 15.14486289024353
+
+
+Epoch: 38
+avg train-loss: 15.5922
+avg val-loss: 9.6206
+mIoU-train: 0.548920214176178
+mIoU-val: 0.6112582087516785
+time: 15.154661178588867
+
+
+Epoch: 39
+avg train-loss: 15.4191
+avg val-loss: 9.6107
+mIoU-train: 0.5513688325881958
+mIoU-val: 0.6128926873207092
+time: 15.160109758377075
+
+
+Epoch: 40
+avg train-loss: 15.2674
+avg val-loss: 9.3964
+mIoU-train: 0.5536643266677856
+mIoU-val: 0.6146705150604248
+time: 15.280776500701904
+
+Using cuda as backend
+Model name: vgg_p_40_00_06
+Test loss: 10.868678675206937, Test IoU: 0.6288790106773376
+Using cuda as backend
+
+Epoch: 1
+avg train-loss: 44.7022
+avg val-loss: 17.8718
+mIoU-train: 0.15768450498580933
+mIoU-val: 0.48600006103515625
+time: 45.769615650177
+
+
+Epoch: 2
+avg train-loss: 33.0946
+avg val-loss: 15.0607
+mIoU-train: 0.3038123548030853
+mIoU-val: 0.5079997777938843
+time: 45.26377272605896
+
+
+Epoch: 3
+avg train-loss: 29.3815
+avg val-loss: 14.0882
+mIoU-train: 0.3577885627746582
+mIoU-val: 0.5116665363311768
+time: 45.54237246513367
+
+
+Epoch: 4
+avg train-loss: 27.2727
+avg val-loss: 13.3821
+mIoU-train: 0.3988996744155884
+mIoU-val: 0.5400000810623169
+time: 45.40419554710388
+
+
+Epoch: 5
+avg train-loss: 25.4126
+avg val-loss: 12.6497
+mIoU-train: 0.4401828646659851
+mIoU-val: 0.5620003938674927
+time: 45.5871684551239
+
+
+Epoch: 6
+avg train-loss: 23.87
+avg val-loss: 12.0576
+mIoU-train: 0.4707495868206024
+mIoU-val: 0.5776676535606384
+time: 45.40411019325256
+
+
+Epoch: 7
+avg train-loss: 22.6182
+avg val-loss: 11.5635
+mIoU-train: 0.49410027265548706
+mIoU-val: 0.5908584594726562
+time: 45.12698316574097
+
+
+Epoch: 8
+avg train-loss: 21.5196
+avg val-loss: 11.1121
+mIoU-train: 0.5129493474960327
+mIoU-val: 0.6028764843940735
+time: 45.60497975349426
+
+
+Epoch: 9
+avg train-loss: 20.5281
+avg val-loss: 10.7085
+mIoU-train: 0.5285388231277466
+mIoU-val: 0.611668050289154
+time: 45.72364902496338
+
+
+Epoch: 10
+avg train-loss: 19.6237
+avg val-loss: 10.3049
+mIoU-train: 0.5412123203277588
+mIoU-val: 0.6190011501312256
+time: 45.60402846336365
+
+
+Epoch: 11
+avg train-loss: 18.7994
+avg val-loss: 9.9042
+mIoU-train: 0.5521408915519714
+mIoU-val: 0.6255464553833008
+time: 45.4134521484375
+
+
+Epoch: 12
+avg train-loss: 18.0221
+avg val-loss: 9.465
+mIoU-train: 0.5618289709091187
+mIoU-val: 0.6319175362586975
+time: 45.6816041469574
+
+
+Epoch: 13
+avg train-loss: 17.2934
+avg val-loss: 9.1856
+mIoU-train: 0.570681095123291
+mIoU-val: 0.6374622583389282
+time: 45.62745499610901
+
+
+Epoch: 14
+avg train-loss: 16.6031
+avg val-loss: 8.9146
+mIoU-train: 0.5789747834205627
+mIoU-val: 0.6431434154510498
+time: 45.48184037208557
+
+
+Epoch: 15
+avg train-loss: 15.9203
+avg val-loss: 8.7513
+mIoU-train: 0.5870661735534668
+mIoU-val: 0.6486002802848816
+time: 45.44224715232849
+
+
+Epoch: 16
+avg train-loss: 15.2655
+avg val-loss: 8.4354
+mIoU-train: 0.5946047902107239
+mIoU-val: 0.6537503004074097
+time: 45.57143783569336
+
+
+Epoch: 17
+avg train-loss: 14.6683
+avg val-loss: 8.0797
+mIoU-train: 0.6014757752418518
+mIoU-val: 0.658176839351654
+time: 45.66101384162903
+
+
+Epoch: 18
+avg train-loss: 14.1128
+avg val-loss: 7.8682
+mIoU-train: 0.6077403426170349
+mIoU-val: 0.6620559692382812
+time: 45.83405351638794
+
+
+Epoch: 19
+avg train-loss: 13.6007
+avg val-loss: 7.6858
+mIoU-train: 0.6134272217750549
+mIoU-val: 0.6657372713088989
+time: 45.488139629364014
+
+
+Epoch: 20
+avg train-loss: 13.1231
+avg val-loss: 7.5653
+mIoU-train: 0.6186885237693787
+mIoU-val: 0.6691505312919617
+time: 45.46687936782837
+
+
+Epoch: 21
+avg train-loss: 12.6593
+avg val-loss: 7.3666
+mIoU-train: 0.6236155033111572
+mIoU-val: 0.6723816394805908
+time: 45.79295825958252
+
+
+Epoch: 22
+avg train-loss: 12.2137
+avg val-loss: 7.2075
+mIoU-train: 0.6282604336738586
+mIoU-val: 0.6753645539283752
+time: 45.79200983047485
+
+
+Epoch: 23
+avg train-loss: 11.7882
+avg val-loss: 7.1297
+mIoU-train: 0.6326524019241333
+mIoU-val: 0.677914023399353
+time: 45.66792440414429
+
+
+Epoch: 24
+avg train-loss: 11.3827
+avg val-loss: 6.932
+mIoU-train: 0.6368503570556641
+mIoU-val: 0.6805428862571716
+time: 45.86203074455261
+
+
+Epoch: 25
+avg train-loss: 10.9885
+avg val-loss: 6.7268
+mIoU-train: 0.6409244537353516
+mIoU-val: 0.6831214427947998
+time: 45.65460681915283
+
+
+Epoch: 26
+avg train-loss: 10.6018
+avg val-loss: 6.6055
+mIoU-train: 0.6451082825660706
+mIoU-val: 0.6856171488761902
+time: 46.08846616744995
+
+
+Epoch: 27
+avg train-loss: 10.2297
+avg val-loss: 6.487
+mIoU-train: 0.6492050886154175
+mIoU-val: 0.6881503462791443
+time: 46.13657832145691
+
+
+Epoch: 28
+avg train-loss: 9.8698
+avg val-loss: 6.356
+mIoU-train: 0.6531404256820679
+mIoU-val: 0.6906096935272217
+time: 45.8403058052063
+
+
+Epoch: 29
+avg train-loss: 9.5312
+avg val-loss: 6.2428
+mIoU-train: 0.6570152044296265
+mIoU-val: 0.6929339170455933
+time: 45.88754916191101
+
+
+Epoch: 30
+avg train-loss: 9.1992
+avg val-loss: 6.1416
+mIoU-train: 0.6608254313468933
+mIoU-val: 0.6950360536575317
+time: 45.75533413887024
+
+
+Epoch: 31
+avg train-loss: 8.8771
+avg val-loss: 6.053
+mIoU-train: 0.6645480394363403
+mIoU-val: 0.6971313953399658
+time: 46.06710362434387
+
+
+Epoch: 32
+avg train-loss: 8.5672
+avg val-loss: 5.9874
+mIoU-train: 0.6682042479515076
+mIoU-val: 0.6990959048271179
+time: 45.67378830909729
+
+
+Epoch: 33
+avg train-loss: 8.2677
+avg val-loss: 5.8784
+mIoU-train: 0.6717669367790222
+mIoU-val: 0.7009112238883972
+time: 45.94122791290283
+
+
+Epoch: 34
+avg train-loss: 7.975
+avg val-loss: 5.7883
+mIoU-train: 0.6752479076385498
+mIoU-val: 0.7026491165161133
+time: 45.81538510322571
+
+
+Epoch: 35
+avg train-loss: 7.6866
+avg val-loss: 5.7297
+mIoU-train: 0.6786503791809082
+mIoU-val: 0.7042591571807861
+time: 46.07983160018921
+
+
+Epoch: 36
+avg train-loss: 7.4191
+avg val-loss: 5.629
+mIoU-train: 0.6819444894790649
+mIoU-val: 0.7058351039886475
+time: 45.85395288467407
+
+
+Epoch: 37
+avg train-loss: 7.1626
+avg val-loss: 5.5078
+mIoU-train: 0.6851561069488525
+mIoU-val: 0.7074881792068481
+time: 45.74960923194885
+
+
+Epoch: 38
+avg train-loss: 6.9219
+avg val-loss: 5.4539
+mIoU-train: 0.6882351636886597
+mIoU-val: 0.7089226841926575
+time: 46.275068521499634
+
+
+Epoch: 39
+avg train-loss: 6.6985
+avg val-loss: 5.3763
+mIoU-train: 0.6912114024162292
+mIoU-val: 0.7103604674339294
+time: 46.03749394416809
+
+
+Epoch: 40
+avg train-loss: 6.4823
+avg val-loss: 5.2675
+mIoU-train: 0.6941129565238953
+mIoU-val: 0.711676299571991
+time: 45.08444428443909
+
+Using cuda as backend
+Model name: vgg_p_40_00_all
+Test loss: 6.380307690534708, Test IoU: 0.7116377949714661

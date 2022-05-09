@@ -16,10 +16,10 @@ from DoubleConv import DoubleConv
 
 
 class VGG11(nn.Module):
-    def __init__(self,in_channels=3, out_channels=1, features:List[int] = [64, 128, 256, 256], n_classes: int = 32, pretrained: bool = True):
+    def __init__(self, in_channels=3, out_channels=1, features: List[int] = [64, 128, 256, 256], n_classes: int = 32, pretrained: bool = True):
         super(VGG11, self).__init__()
-        
-        self.pool = nn.MaxPool2d(2, 2)        
+
+        self.pool = nn.MaxPool2d(2, 2)
 
         # Down part of VGG11
         self.pretrained_encoder = models.vgg11(pretrained=pretrained).features
@@ -43,12 +43,12 @@ class VGG11(nn.Module):
 
         self.ups.append(nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2))
         self.ups.append(DoubleConv(768, 512))
-        
+
         self.ups.append(nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2))
         self.ups.append(DoubleConv(768, 512))
 
-        self.ups.append(nn.ConvTranspose2d(512,128, kernel_size=2, stride=2))
-        self.ups.append(DoubleConv(384,256))
+        self.ups.append(nn.ConvTranspose2d(512, 128, kernel_size=2, stride=2))
+        self.ups.append(DoubleConv(384, 256))
 
         self.ups.append(nn.ConvTranspose2d(256, 64, kernel_size=2, stride=2))
         self.ups.append(DoubleConv(192, 128))
@@ -57,31 +57,30 @@ class VGG11(nn.Module):
         self.ups.append(DoubleConv(96, 64))
 
         self.final_conv = nn.Conv2d(64, n_classes, kernel_size=1)
-    
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         skip_connections = []
 
         conv1 = self.relu(self.conv1(x))
-        skip_connections.append(conv1) #1st skip_connection
+        skip_connections.append(conv1)  # 1st skip_connection
 
         conv2 = self.relu(self.conv2(self.pool(conv1)))
-        skip_connections.append(conv2) #2nd skip_connection
+        skip_connections.append(conv2)  # 2nd skip_connection
 
         conv3s = self.relu(self.conv3s(self.pool(conv2)))
-        conv3 = self.relu(self.conv3(conv3s)) #3rd
+        conv3 = self.relu(self.conv3(conv3s))  # 3rd
         skip_connections.append(conv3)
 
         conv4s = self.relu(self.conv4s(self.pool(conv3)))
-        conv4 = self.relu(self.conv4(conv4s)) #4th
+        conv4 = self.relu(self.conv4(conv4s))  # 4th
         skip_connections.append(conv4)
 
         conv5s = self.relu(self.conv5s(self.pool(conv4)))
-        conv5 = self.relu(self.conv5(conv5s)) #5th
+        conv5 = self.relu(self.conv5(conv5s))  # 5th
         skip_connections.append(conv5)
 
         skip_connections = skip_connections[::-1]
-        
+
         x = conv5
 
         for idx in range(0, len(self.ups), 2):
@@ -97,13 +96,13 @@ class VGG11(nn.Module):
 
         return self.final_conv(x)
 
+
 if __name__ == '__main__':
 
     parser = ArgumentParser()
 
     parser.add_argument('--augmentation', type=str)
     parser.add_argument('--pretraining', type=bool, default=True)
-
 
     args = parser.parse_args()
 
@@ -179,13 +178,13 @@ if __name__ == '__main__':
 
     AEModel = AEModelTrainer(model)
 
-    if args.pretraining:
+    if args.pretraining == True:
         model_name = f'vgg_p_40_00_{args.augmentation}'
     else:
         model_name = f'vgg_40_00_{args.augmentation}'
 
     train_losses, valid_losses = AEModel.train(
-        train_loader, val_loader, epochs=2, optimizer=optimizer,
+        train_loader, val_loader, epochs=40, optimizer=optimizer,
         loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
     preds, avg_test_iou, test_loss = AEModel.predict(

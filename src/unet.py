@@ -16,15 +16,14 @@ from argparse import ArgumentParser
 
 class UNET(nn.Module):
     def __init__(
-            self, in_channels=3, out_channels=1, features=[64, 128, 256, 512], n_classes: int = 32, 
+            self, in_channels=3, out_channels=1, features=[64, 128, 256, 512], n_classes: int = 32,
     ):
         super(UNET, self).__init__()
         self.downs = nn.ModuleList()
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
-
-        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
         self.bottleneck = DoubleConv(features[-1], features[-1]*2)
-        
+        self.ups = nn.ModuleList()
+
         # Down part of UNET
         for feature in features:
             self.downs.append(DoubleConv(in_channels, feature))
@@ -159,7 +158,7 @@ if __name__ == "__main__":
     #model_name = f'unet_40_all'
 
     train_losses, valid_losses = AEModel.train(
-        train_loader, val_loader, epochs=2, optimizer=optimizer,
+        train_loader, val_loader, epochs=40, optimizer=optimizer,
         loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
     preds, avg_test_iou, test_loss = AEModel.predict(
