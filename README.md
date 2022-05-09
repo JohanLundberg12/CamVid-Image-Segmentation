@@ -1,6 +1,10 @@
 # CamVid-Image-Segmentation
 Image segmentation with deep encoder-decoder networks using the Cambridge-driving Labeled Video Database (CamVid). 
 
+## Project Github
+
+Our Github repository is public and can be accessed at: https://github.com/JohanLundberg12/camvid-image-segmentation
+
 
 ## The Data
 
