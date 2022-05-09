@@ -19,11 +19,16 @@ https://discuss.pytorch.org/t/how-to-add-noise-to-mnist-dataset-when-using-pytor
 
 We used six ways of augmenting data. 
 
-1: horizontally flipping the data. 
+1: horizontally flipping the data.
+
 2: resizing and cropping the data
+
 3: adjusting brightness
+
 4: adjusting contrast
+
 5: adding gaussian noise
+
 6: combining all previously mentioned methods into one. 
 
 We, of course, transformed labels along with the data when necessary.
