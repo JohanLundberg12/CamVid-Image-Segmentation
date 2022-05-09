@@ -12,10 +12,29 @@ The challenge is to segment road images into one of the 32 classes. In this clas
 
 ## Methods
 
+**Data augmentation methods:**
+
+We have used some simple data augmentation methods in order to increase the amount of data.  We have used the ‘transform’ module from torchvision for all transformation except the gaussian noise, where we have created our own function, ‘AddGaussianNoise’, which was inspired by the method used in the following blogpost: 
+https://discuss.pytorch.org/t/how-to-add-noise-to-mnist-dataset-when-using-pytorch/59745.
+
+We used six ways of augmenting data. 
+
+1: horizontally flipping the data. 
+2: resizing and cropping the data
+3: adjusting brightness
+4: adjusting contrast
+5: adding gaussian noise
+6: combining all previously mentioned methods into one. 
+
+We, of course, transformed labels along with the data when necessary.
+
 ## Experiments and results
-We used two different model, UNET and VGG11. Each of these models were tested on the raw data, each of the six augmentations of the data with the raw data, and all the augmentations of the data combined with the raw data. We tested both with pretraining and without pretraining. 
+
+We used two different model, UNET and VGG11. Each of these models were tested on the raw data, each of the six augmentations of the data with the raw data, and all the augmentations of the data combined with the raw data. We tested both with pretraining and without pretraining on the VGG11 model.
 For each experiment, we obtained the following best results:
+
 **UNET originial data:** 
+
 - Parameters: 
   - Augmentation: None
   - Learning rate: 0.0001
@@ -24,7 +43,9 @@ For each experiment, we obtained the following best results:
   - Loss function: CE
 - Test mIoU: 60.6
 - Test loss: 10.40
+
 **UNET original data + one augmented data method:**
+
 - Parameters: 
   - Augmentation: 01
   - Learning rate: 0.0001
@@ -33,7 +54,9 @@ For each experiment, we obtained the following best results:
   - Loss function: CE
 - Test mIoU: 61.93
 - Test loss: 11.61
+
 **UNET all data:**
+
 - Parameters: 
   - Augmentation: All
   - Learning rate: 0.0001
@@ -44,6 +67,7 @@ For each experiment, we obtained the following best results:
 - Test loss: **??**
 
 **VGG11 not pretrained originial data:**
+
 - Parameters:
   - Augmentation: None
   - Learning rate: 0.0001
@@ -52,7 +76,9 @@ For each experiment, we obtained the following best results:
   - Loss function: CE
 - Test mIoU: **??**
 - Test loss: **??**
+
 **VGG11 not pretrained original data + one augmented data method:**
+
 - Parameters: 
   - Augmentation:
   - Learning rate: 0.0001
@@ -61,7 +87,9 @@ For each experiment, we obtained the following best results:
   - Loss function: CE
 - Test mIoU:
 - Test loss:
+
 **vGG11 not pretrained all data:**
+
 - Parameters: 
   - Augmentation:
   - Learning rate: 0.0001
@@ -72,6 +100,7 @@ For each experiment, we obtained the following best results:
 - Test loss:
 
 **VGG11 pretrained originial data:**
+
 - Parameters:
   - Augmentation: None
   - Learning rate: 0.0001
@@ -80,7 +109,9 @@ For each experiment, we obtained the following best results:
   - Loss function: CE
 - Test mIoU:
 - Test loss:
+
 **VGG11 pretrained original data + one augmented data method:**
+
 - Parameters: 
   - Augmentation:
   - Learning rate: 0.0001
@@ -89,7 +120,9 @@ For each experiment, we obtained the following best results:
   - Loss function: CE
 - Test mIoU:
 - Test loss:
+
 **VGG11 pretrained all data:**
+
 - Parameters: 
   - Augmentation:
   - Learning rate: 0.0001
