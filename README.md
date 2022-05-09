@@ -8,7 +8,7 @@ CamVid (Cambridge-driving Labeled Video Database) is a road/driving scene unders
 
 ## Central Problem
 
-The challenge is to segment road images into several classes, i.e. pedestrians, roads, cars etc. In this classification, some classes arw only present in a limited amount of the pixels. For example pedestrians on such images will naturally take up a smaller amount of the pixels than the sky, but the pedestrians are important to classify correctly.
+The challenge is to segment road images into one of the 32 classes. In this classification task, some classes are only present in a limited amount of the pixels. For example pedestrians on such images will naturally take up a smaller amount of the pixels than the sky, but the pedestrians are important to classify correctly.
 
 ## Methods
 
