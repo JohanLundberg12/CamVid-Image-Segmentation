@@ -11,18 +11,19 @@ from AEModel import AEModelTrainer
 from camvid_dataloader import CamVidDataset
 from config import CAMVID_DIR, MODEL_DIR
 
+from argparse import ArgumentParser
+
 
 class UNET(nn.Module):
     def __init__(
-            self, in_channels=3, out_channels=1, features=[64, 128, 256, 512], n_classes: int = 32, 
+            self, in_channels=3, out_channels=1, features=[64, 128, 256, 512], n_classes: int = 32,
     ):
         super(UNET, self).__init__()
         self.downs = nn.ModuleList()
         self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
-
-        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
         self.bottleneck = DoubleConv(features[-1], features[-1]*2)
-        
+        self.ups = nn.ModuleList()
+
         # Down part of UNET
         for feature in features:
             self.downs.append(DoubleConv(in_channels, feature))
@@ -75,11 +76,17 @@ class UNET(nn.Module):
 
 if __name__ == "__main__":
 
+    parser = ArgumentParser()
+
+    parser.add_argument('--augmentation', type=str)
+
+    args = parser.parse_args()
+
     # Specify paths
-    train_imgs_path = CAMVID_DIR / 'train'
+    train_imgs_path = CAMVID_DIR / 'train_augment'
     val_imgs_path = CAMVID_DIR / 'val'
     test_imgs_path = CAMVID_DIR / 'test'
-    train_labels_path = CAMVID_DIR / 'train_labels'
+    train_labels_path = CAMVID_DIR / 'train_labels_augment'
     val_labels_path = CAMVID_DIR / 'val_labels'
     test_labels_path = CAMVID_DIR / 'test_labels'
 
@@ -87,20 +94,35 @@ if __name__ == "__main__":
     input_size = (128, 128)
     transformation = T.Compose([T.Resize(input_size, 0)])
 
+    augmentations = ['00']
+    if args.augmentation == 'all':
+        augmentations = ['00', '01', '02', '03', '04', '05', '06']
+    elif args.augmentation == 'none':
+        augmentations = ['00']
+    else:
+        augmentations.append(args.augmentation)
+
     # Define training and validation datasets
     camvid_train = CamVidDataset(
         train_imgs_path,
         train_labels_path,
-        transformation)
-    camvid_val = CamVidDataset(val_imgs_path, val_labels_path, transformation)
+        transformation,
+        train=True,
+        augmentations=augmentations)
+    camvid_val = CamVidDataset(
+        val_imgs_path,
+        val_labels_path,
+        transformation,
+        train=False)
     camvid_test = CamVidDataset(
         test_imgs_path,
         test_labels_path,
-        transformation)
+        transformation,
+        train=False)
 
     train_loader = DataLoader(
         camvid_train,
-        batch_size=12,
+        batch_size=16,
         num_workers=4,
         pin_memory=True,
         shuffle=False,
@@ -121,7 +143,7 @@ if __name__ == "__main__":
         shuffle=False,
     )
 
-    model = UNETVGG11(in_channels=3, out_channels=3)
+    model = UNET(in_channels=3, out_channels=3)
 
     params = [p for p in model.parameters() if p.requires_grad]
 
@@ -130,19 +152,16 @@ if __name__ == "__main__":
     optimizer = optim.AdamW(params, lr=0.00001)
     scaler = torch.cuda.amp.GradScaler()
 
-    AEModel_Unet = AEModelTrainer(model)
+    AEModel = AEModelTrainer(model)
 
-    model_name = 'unet_100_adamw'
+    model_name = f'unet_40_00_{args.augmentation}'
+    #model_name = f'unet_40_all'
 
-    train_losses, valid_losses = AEModel_Unet.train(
-        train_loader, val_loader, epochs=100, optimizer=optimizer,
+    train_losses, valid_losses = AEModel.train(
+        train_loader, val_loader, epochs=40, optimizer=optimizer,
         loss_fn=loss_fn, scaler=scaler, log_name=model_name)
 
-    #new_model = AEModelTrainer(model)
-
-    preds, avg_test_iou, test_loss = new_model.predict(
+    preds, avg_test_iou, test_loss = AEModel.predict(
         test_loader, MODEL_DIR / model_name, loss_fn)
 
     print(f'Test loss: {test_loss}, Test IoU: {avg_test_iou}')
-
-    a = 1

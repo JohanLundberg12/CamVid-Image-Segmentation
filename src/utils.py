@@ -43,12 +43,12 @@ def rgb_to_mask(img, color_map):
 
 def mask_to_rgb(mask, color_map):
     ''' 
-        Converts a Binary Mask of shape to RGB image mask of shape [batch_size, h, w, 3]
-        Parameters:
-            img: A Binary mask
-            color_map: Dictionary representing color mappings
-        returns:
-            out: A RGB mask of shape [batch_size, h, w, 3]
+    Converts a Binary Mask of shape to RGB image mask of shape [batch_size, h, w, 3]
+    Parameters:
+        img: A Binary mask
+        color_map: Dictionary representing color mappings
+    returns:
+        out: A RGB mask of shape [batch_size, h, w, 3]
     '''
     single_layer = np.argmax(mask, axis=1)
     output = np.zeros((mask.shape[0],mask.shape[2],mask.shape[3],3))

@@ -81,7 +81,7 @@ class AEModelTrainer:
         valid_iou = list()
 
         # Saving preds through epochs
-        all_preds = list()  # shape: (epoch, image, pixel)
+        #all_preds = list()  # shape: (epoch, image, pixel)
 
         for epoch in range(1, epochs + 1):
 
@@ -146,9 +146,9 @@ class AEModelTrainer:
                     valid_iou.extend(
                         iou(predictions.argmax(1), targets.argmax(1)))
 
-                    epoch_preds.extend(
-                        predictions.argmax(1).flatten(
-                            start_dim=1).cpu().tolist())
+                    # epoch_preds.extend(
+                    #     predictions.argmax(1).flatten(
+                    #         start_dim=1).cpu().tolist())
 
             # Calculate average loss
             valid_loss /= len(val_loader)
@@ -156,7 +156,7 @@ class AEModelTrainer:
             # average jaccard score mIOU
             avg_valid_iou = sum(valid_iou) / len(valid_iou)
 
-            #all_preds.append(epoch_preds)
+            # all_preds.append(epoch_preds)
 
             stop = time()
 
@@ -172,8 +172,8 @@ class AEModelTrainer:
 
         writer.close()
 
-        all_preds = np.array(all_preds)
-        write_3d_array(all_preds, 'valid_preds/' + log_name + ".txt")
+        #all_preds = np.array(all_preds)
+        #write_3d_array(all_preds, 'valid_preds/' + log_name + ".txt")
 
         isExist = os.path.exists('models')
         if not isExist:
@@ -245,8 +245,3 @@ class AEModelTrainer:
         test_loss /= len(test_loader)
 
         return preds, avg_test_iou, test_loss
-
-
-if __name__ == '__main__':
-
-    print('hej')

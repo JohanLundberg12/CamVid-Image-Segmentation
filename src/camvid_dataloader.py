@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from typing import List
 
 import numpy as np
 import torch
@@ -15,12 +16,16 @@ from utils import rgb_to_mask
 
 class CamVidDataset():
 
-    def __init__(self, img_pth, label_pth, transform):
+    def __init__(self, img_pth, label_pth, transform,
+                 train: bool = True, augmentations: List[str] = ['00']):
         self.img_pth = img_pth
         self.label_pth = label_pth
         self.transform = transform
-
         self.total_imgs = os.listdir(self.img_pth)
+
+        if train:
+            self.total_imgs = [
+                img_path for img_path in self.total_imgs if img_path[-6:-4] in augmentations]
         self.total_labels = [img_name[:-4] + '_L' + img_name[-4:]
                              for img_name in self.total_imgs]
         code2id, id2code, name2id, id2name = Color_map(
@@ -54,5 +59,3 @@ if __name__ == '__main__':
     train_labels_path = CAMVID_DIR / 'train_labels'
 
     camvid = CamVidDataset(train_imgs_path, train_labels_path, transformation)
-
-    a = 1
