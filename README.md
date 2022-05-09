@@ -52,6 +52,15 @@ For each experiment, we obtained the following best results:
 
 ## Discussion
 
+- We observed that the pretrained VGG11 improved model performance.
+- We observed that data augmentation methods improved model performance.
+
+**Points for future work:**
+
+- Hyperparameter tuning could be optimized. 
+- Classifying on related domains. 
+
+
 ## Install environment and packages
 
 - Create new virtual environment: `python -m venv .venv`
