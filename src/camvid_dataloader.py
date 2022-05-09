@@ -59,5 +59,3 @@ if __name__ == '__main__':
     train_labels_path = CAMVID_DIR / 'train_labels'
 
     camvid = CamVidDataset(train_imgs_path, train_labels_path, transformation)
-
-    a = 1
