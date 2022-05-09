@@ -33,6 +33,10 @@ We used six ways of augmenting data.
 
 We, of course, transformed labels along with the data when necessary.
 
+**Utility functions and evaluation metrics:** 
+
+Several of the utility functions and evaluation metrics are taken from the following Git Repository: https://github.com/UsamaI000/CamVid-Segmentation-Pytorch/tree/master/U-Net/src 
+
 ## Experiments and results
 
 We used two different model, UNET and VGG11. Each of these models were tested on the raw data, each of the six augmentations of the data with the raw data, and all the augmentations of the data combined with the raw data. We tested both with pretraining and without pretraining on the VGG11 model.
