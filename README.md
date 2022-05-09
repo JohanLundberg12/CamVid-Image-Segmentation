@@ -49,7 +49,7 @@ For each experiment, we obtained the following best results:
 |    UNET   	|    All   	|     66.81     	|      11.28         	|
 |   VGG11   	| Original 	|     61.29      	|      13.81            	|
 |   VGG11   	|   0 + 5  	|     66.12          	|       11.35        	|
-|   VGG11   	|    All   	|     71.16            	|       6.38        	|
+|   VGG11   	|    All   	|     **71.16**            	|       6.38        	|
 | VGG11 + P 	| Original 	|     58.18          	|      13.49         	|
 | VGG11 + P 	|   0 + 3  	|     67.11          	|      11.42         	|
 | VGG11 + P 	|    All   	|     71.03           	|      6.30         	|
