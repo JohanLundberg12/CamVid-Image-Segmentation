@@ -245,8 +245,3 @@ class AEModelTrainer:
         test_loss /= len(test_loader)
 
         return preds, avg_test_iou, test_loss
-
-
-if __name__ == '__main__':
-
-    print('hej')
