@@ -8,13 +8,13 @@ from DoubleConv import DoubleConv
 
 
 class VGG11(nn.Module):
-    def __init__(self,in_channels=3, out_channels=1, features:List[int] = [64, 128, 256, 256], n_classes: int = 32):
+    def __init__(self,in_channels=3, out_channels=1, features:List[int] = [64, 128, 256, 256], n_classes: int = 32, pretrained: bool = True):
         super(VGG11, self).__init__()
         
         self.pool = nn.MaxPool2d(2, 2)        
 
         # Down part of VGG11
-        self.pretrained_encoder = models.vgg11(pretrained=True).features
+        self.pretrained_encoder = models.vgg11(pretrained=pretrained).features
         self.relu = self.pretrained_encoder[1]
 
         self.conv1 = self.pretrained_encoder[0]
